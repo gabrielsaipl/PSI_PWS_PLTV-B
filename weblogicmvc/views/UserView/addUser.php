@@ -9,6 +9,7 @@
             <input type="text" name="email" placeholder="Email">
             <input type="text" name="nif" placeholder="NIF">
             <input type="text" name="morada" placeholder="Morada">
+            <input type="text" name="localidade" placeholder="Localidade">
             <input type="text" name="codigopostal" placeholder="Código Postal">
             <?php $_POST['userid']=1;if($_POST['userid']==1): //SE FOR 1(ADMIN)?>
                 <select name="role">
@@ -16,7 +17,7 @@
                     <option value="3">Utilizador</option>
                 </select>
             <?php else: //SE FOR 2(FUNCIONARIO)?>
-                <input type="hidden" name="role" value="3"> <!-- INPUT HIDDEN PORQUE O FUNCIONÁRIO SÓ ADD CLIENTES(3)-->
+                <input type="hidden" name="role" value="3"> <!-- INPUT HIDDEN PORQUE O FUNCIONÁRIO SÓ CONSEGUE ADD CLIENTES(3)-->
             <?php endif;?>
             <button>Adicionar</button>
         </form>

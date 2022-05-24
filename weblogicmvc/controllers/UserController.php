@@ -5,7 +5,7 @@ class UserController
     public function index(){
         $users = User::All();
 
-        //MOSTRAR VISTA DE LISTAR CLIENTE
+        //MOSTRAR VISTA DE LISTAR UTILIZADORES
     }
 
     public function show($id){
@@ -25,8 +25,9 @@ class UserController
     public function store(){
         $user = new User($_POST);
         var_dump($user);
+        $user->save();
         if ($user->is_valid()){
-            $user->save();
+
             //MOSTRAR VISTA COM LISTA DE UTILIZADORES (INDEX)
             echo"utilizador guardado";
         } else{

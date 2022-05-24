@@ -18,6 +18,9 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
         case ('user'):
             switch ($action){
                 case ('index'):
+                    $userController = new UserController();
+                    $userController->index($id);
+                    break;
                 case('show'):
                     $userController = new UserController();
                     $userController->show($id);
