@@ -1,6 +1,6 @@
 <?php
 
-class EmpresaController
+class EmpresaController extends SiteController
 {
 
     // SHOW?

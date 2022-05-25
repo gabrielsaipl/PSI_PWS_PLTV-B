@@ -1,10 +1,10 @@
 <?php
 
-class IvaController
+class IvaController extends SiteController
 {
     public function index(){
-        $iva = Iva::All();
-
+        $ivas = Iva::All();
+        var_dump($ivas);
         //MOSTRAR VISTA DE LISTAR
     }
 
@@ -19,16 +19,18 @@ class IvaController
     }
 
     public function create(){
-        //mostrar vista create
+        $this->renderView("IvaView/addIva.php");
     }
 
     public function store(){
         $iva = new Iva($_POST);
-        $iva->save();
+        //var_dump($iva);
         if ($iva->is_valid()){
-            //MOSTRAR VISTA COM LISTA (INDEX)
+            $iva->save();
+            $this->redirectToRoute("iva","index");
         } else{
-            // DEU ERRO, VOLTAR AO CREATE
+            echo '<script>alert("Erro ao criar o Iva")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
+            $this->redirectToRoute("iva","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
         }
     }
 

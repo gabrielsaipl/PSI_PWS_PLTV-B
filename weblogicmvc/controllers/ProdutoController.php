@@ -1,10 +1,10 @@
 <?php
 
-class ProdutoController
+class ProdutoController extends SiteController
 {
     public function index(){
         $produtos = Produto::All();
-
+        var_dump($produtos);
         //MOSTRAR VISTA DE LISTAR PRODUTOS
     }
 
@@ -19,17 +19,20 @@ class ProdutoController
     }
 
     public function create(){
-        //mostrar vista create
+        $ivas = Iva::all(array('conditions'=> 'emvigor = 1'));
+        $this->renderView("ProdutosView/addProduto.php",[
+            'ivas' => $ivas,
+        ]);
     }
 
     public function store(){
         $produto = new Produto($_POST);
-        $produto->save();
         if ($produto->is_valid()){
-            //MOSTRAR VISTA COM LISTA DE PRODUTOS (INDEX)
-            echo"utilizador guardado";
+            $produto->save();
+            $this->redirectToRoute("produto","index");
         } else{
-            // DEU ERRO, VOLTAR AO CREATE
+            echo '<script>alert("Erro ao criar o produto")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
+            $this->redirectToRoute("produto","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
         }
     }
 

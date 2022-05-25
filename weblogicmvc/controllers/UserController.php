@@ -1,11 +1,17 @@
 <?php
 
-class UserController
+class UserController extends SiteController
 {
-    public function index(){
-        $users = User::All();
+    public function funcionarios(){
+        $users = User::all(array('conditions'=> 'role = 2'));
+        var_dump($users);
+        //MOSTRAR VISTA DE LISTAR Funcionarios
+    }
 
-        //MOSTRAR VISTA DE LISTAR UTILIZADORES
+    public function clientes(){
+        $users = User::all(array('conditions'=> 'role = 3'));
+        var_dump($users);
+        //MOSTRAR VISTA DE LISTAR Clientes
     }
 
     public function show($id){
@@ -19,19 +25,18 @@ class UserController
     }
 
     public function create(){
-        //mostrar vista create
+        $this->renderView("UsersView/addUser.php");
     }
 
     public function store(){
         $user = new User($_POST);
-        var_dump($user);
-        $user->save();
         if ($user->is_valid()){
-
-            //MOSTRAR VISTA COM LISTA DE UTILIZADORES (INDEX)
-            echo"utilizador guardado";
+            $user->save();
+            if($user->role==2) $this->redirectToRoute("user","funcionarios");
+            if($user->role==3) $this->redirectToRoute("user","cliente");
         } else{
-            // DEU ERRO, VOLTAR AO CREATE
+            echo '<script>alert("Erro ao criar o utilizador")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
+            $this->redirectToRoute("user","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
         }
     }
 

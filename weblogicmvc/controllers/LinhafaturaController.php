@@ -1,6 +1,6 @@
 <?php
 
-class LinhafaturaController
+class LinhafaturaController extends SiteController
 {
     public function index(){
         $linhaFatura = Linhafatura::All();
@@ -19,16 +19,17 @@ class LinhafaturaController
     }
 
     public function create(){
-        //mostrar vista create
+        $this->renderView("LinhaFaturaView/addLinhaFatura.php");
     }
 
     public function store(){
         $linhaFatura = new Linhafatura($_POST);
-        $linhaFatura->save();
         if ($linhaFatura->is_valid()){
-            //MOSTRAR VISTA COM LISTA (INDEX)
+            $linhaFatura->save();
+            $this->redirectToRoute("linhafatura","index");
         } else{
-            // DEU ERRO, VOLTAR AO CREATE
+            echo '<script>alert("Erro ao criar o utilizador")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
+            $this->redirectToRoute("user","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
         }
     }
 

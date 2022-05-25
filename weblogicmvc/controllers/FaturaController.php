@@ -1,6 +1,6 @@
 <?php
 
-class FaturaController
+class FaturaController extends SiteController
 {
     public function index(){
         $fatura = Fatura::All();
@@ -19,16 +19,17 @@ class FaturaController
     }
 
     public function create(){
-        //mostrar vista create
+        $this->renderView("FaturasView/addFatura.php");
     }
 
     public function store(){
         $fatura = new Fatura($_POST);
-        $fatura->save();
         if ($fatura->is_valid()){
-            //MOSTRAR VISTA COM LISTA (INDEX)
+            $fatura->save();
+            $this->redirectToRoute("fatura","index");
         } else{
-            // DEU ERRO, VOLTAR AO CREATE
+            echo '<script>alert("Erro ao criar a fatura")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
+            $this->redirectToRoute("fatura","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
         }
     }
 
