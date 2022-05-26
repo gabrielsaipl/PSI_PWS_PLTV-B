@@ -61,9 +61,9 @@ class UserController extends SiteController
         $user->update_attributes($_POST);
         if ($user->is_valid()){
             $user->save();
-            if ($user->id == 2) $this->redirectToRoute("user","funcionario");
-            elseif ($user->id == 3) $this->redirectToRoute("user","cliente");
-            else $this->redirectToRoute(); // MOSTRAR VISTA DA ZONA RESERVADA DO ADMIN
+            if ($user->role == 2) $this->redirectToRoute("user","funcionario");
+            elseif ($user->role == 3) $this->redirectToRoute("user","cliente");
+            elseif ($user->role == 1) $this->redirectToRoute(); // MOSTRAR VISTA DA ZONA RESERVADA DO ADMIN
         } else {
             // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
         }

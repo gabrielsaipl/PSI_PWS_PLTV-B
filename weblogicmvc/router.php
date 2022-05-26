@@ -185,7 +185,6 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
             }
             break;
         case ('empresa'):
-
             switch ($action) {
                 case ('edit'):
                     $empresaController = new EmpresaController();
@@ -194,6 +193,10 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                 case ('update'):
                     $empresaController = new EmpresaController();
                     $empresaController->update($id);
+                    break;
+                case ('show'):
+                    $empresaController = new EmpresaController();
+                    $empresaController->show($id);
                     break;
             }
             break;

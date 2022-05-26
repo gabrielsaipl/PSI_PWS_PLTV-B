@@ -3,14 +3,26 @@
 class EmpresaController extends SiteController
 {
 
-    // SHOW?
+    public function store(){
+        $empresa = new Empresa($_POST);
+        if ($empresa->is_valid()){
+            $empresa->save();
+            //$this->redirectToRoute("","");
+        } else{
+            echo '<script>alert("Erro ao criar a fatura")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
+            var_dump($empresa);
+            //$this->redirectToRoute("fatura","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+        }
+    }
 
     public function edit($id){
         $empresa = Empresa::find([$id]);
         if (is_null($empresa)){
             // MOSTRAR POPUP ERRO
         } else {
-            //MOSTRAR VISTA EDITAR O USER
+            $this->renderView("EmpresaView/editEmpresa.php",[
+                "empresa" => $empresa,
+            ]);
         }
     }
 
@@ -19,9 +31,21 @@ class EmpresaController extends SiteController
         $empresa->update_attributes($_POST);
         if ($empresa->is_valid()){
             $empresa->save();
-            // MOSTRAR A LISTA DE UTILIZADORES
+            // MOSTRAR VISTA
         } else {
             // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
+        }
+    }
+
+    public function show($id){
+        $empresa = Empresa::find([$id]);
+
+        if(is_null($empresa)){ //SE N EXISTIR
+            //MOSTRAR POPUP
+        } else {
+            $this->renderView("EmpresaView/showEmpresa.php",[
+                "empresa" => $empresa,
+            ]);
         }
     }
 }
