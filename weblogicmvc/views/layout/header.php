@@ -18,10 +18,11 @@
     <header>
         <h1>Fatura+</h1>
         <nav>
-            <a href="#">First tab</a>
-            <a href="#">Second tab</a>
-            <a href="#">Third tab</a>
-            <a href="#">Fourth tab</a>
+            <a href="?c=user&a=create">User</a>
+            <a href="?c=produto&a=create">Produto</a>
+            <a href="?c=fatura&a=create">Fatura</a>
+            <a href="?c=linhafatura&a=create">Linha Fatura</a>
+            <a href="?c=iva&a=create">Iva</a>
         </nav>
     </header>
 

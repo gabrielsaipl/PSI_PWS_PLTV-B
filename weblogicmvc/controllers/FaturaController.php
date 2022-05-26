@@ -19,7 +19,10 @@ class FaturaController extends SiteController
     }
 
     public function create(){
-        $this->renderView("FaturasView/addFatura.php");
+        $clientes = User::all(array('conditions'=> 'role = 3'));
+        $this->renderView("FaturasView/addFatura.php",[
+            'clientes' => $clientes,
+        ]);
     }
 
     public function store(){
@@ -29,7 +32,8 @@ class FaturaController extends SiteController
             $this->redirectToRoute("fatura","index");
         } else{
             echo '<script>alert("Erro ao criar a fatura")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            $this->redirectToRoute("fatura","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            var_dump($fatura);
+            //$this->redirectToRoute("fatura","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
         }
     }
 

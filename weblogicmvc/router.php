@@ -18,7 +18,7 @@ require_once "models/Produto.php";
 
 if(!isset($_GET['c'])&&!isset($_GET['a'])){
     //HOMEPAGE;
-    include_once "views/UsersView/addUser.php";
+    include_once "views/login.php";
 } else{
     if (isset($_GET['id'])){
         $id = $_GET['id'];
@@ -115,6 +115,75 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                 case('update'):
                     $ivaController = new IvaController();
                     $ivaController->update($id);
+                    break;
+            }
+            break;
+        case ('fatura'):
+            switch ($action) {
+                case ('index'):
+                    $faturaController = new FaturaController();
+                    $faturaController->index();
+                    break;
+                case('show'):
+                    $faturaController = new FaturaController();
+                    $faturaController->show($id);
+                    break;
+                case('create'):
+                    $faturaController = new FaturaController();
+                    $faturaController->create();
+                    break;
+                case('store'):
+                    $faturaController = new FaturaController();
+                    $faturaController->store();
+                    break;
+                case('edit'):
+                    $faturaController = new FaturaController();
+                    $faturaController->edit($id);
+                    break;
+                case('update'):
+                    $faturaController = new FaturaController();
+                    $faturaController->update($id);
+                    break;
+            }
+            break;
+        case ('linhafatura'):
+            switch ($action) {
+                case ('index'):
+                    $linhafaturaController = new LinhafaturaController();
+                    $linhafaturaController->index();
+                    break;
+                case('show'):
+                    $linhafaturaController = new LinhafaturaController();
+                    $linhafaturaController->show($id);
+                    break;
+                case('create'):
+                    $linhafaturaController = new LinhafaturaController();
+                    $linhafaturaController->create();
+                    break;
+                case('store'):
+                    $linhafaturaController = new LinhafaturaController();
+                    $linhafaturaController->store();
+                    break;
+                case('edit'):
+                    $linhafaturaController = new LinhafaturaController();
+                    $linhafaturaController->edit($id);
+                    break;
+                case('update'):
+                    $linhafaturaController = new LinhafaturaController();
+                    $linhafaturaController->update($id);
+                    break;
+            }
+            break;
+        case ('empresa'):
+
+            switch ($action) {
+                case ('edit'):
+                    $empresaController = new EmpresaController();
+                    $empresaController->edit($id);
+                    break;
+                case ('update'):
+                    $empresaController = new EmpresaController();
+                    $empresaController->update($id);
                     break;
             }
             break;

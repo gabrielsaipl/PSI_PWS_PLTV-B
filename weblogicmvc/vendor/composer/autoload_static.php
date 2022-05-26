@@ -7,7 +7,41 @@ namespace Composer\Autoload;
 class ComposerStaticInit33168683f9c7a468a2e1b6e6f4745ab6
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e60481d8c04e99474e2ba7b3658ab5a' => __DIR__ . '/..' . '/php-activerecord/php-activerecord/ActiveRecord.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Translation\\' => 30,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/nesbot/carbon/src',
+    );
+
+    public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'UpdateHelper\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/kylekatarnls/update-helper/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -17,6 +51,10 @@ class ComposerStaticInit33168683f9c7a468a2e1b6e6f4745ab6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit33168683f9c7a468a2e1b6e6f4745ab6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit33168683f9c7a468a2e1b6e6f4745ab6::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit33168683f9c7a468a2e1b6e6f4745ab6::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit33168683f9c7a468a2e1b6e6f4745ab6::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit33168683f9c7a468a2e1b6e6f4745ab6::$classMap;
 
         }, null, ClassLoader::class);

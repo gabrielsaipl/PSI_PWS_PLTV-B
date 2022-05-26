@@ -1,5 +1,15 @@
 {
     "require": {
-        "php-activerecord/php-activerecord": "^1.2"
+        "php-activerecord/php-activerecord": "^1.2",
+        "nesbot/carbon": "^1.39"
+    },
+
+    "require": {
+        "nesbot/carbon": "^2.58.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
