@@ -2,7 +2,7 @@
 <div class="col-sm-6">
     <h3>Criar novo</h3>
     <p>
-        <a href="router.php?c=user&a=create" class="btn btn-info" role="button">New</a>
+        <a href="router.php?c=user&a=create" class="btn btn-info" role="button">Novo</a>
     </p>
 </div>
 </div>
