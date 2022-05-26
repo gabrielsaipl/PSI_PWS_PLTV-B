@@ -2,8 +2,8 @@
 
 class SiteController
 {
-    public function redirectToRoute($controller,$view){
-        header("Location: index.php?c=$controller&a=$view");
+    public function redirectToRoute($controller,$action){
+        header("Location: index.php?c=$controller&a=$action");
     }
 
     public function renderView($view, $params=[]){

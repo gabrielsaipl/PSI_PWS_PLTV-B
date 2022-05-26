@@ -17,8 +17,9 @@ require_once "models/Linhafatura.php";
 require_once "models/Produto.php";
 
 if(!isset($_GET['c'])&&!isset($_GET['a'])){
-    //HOMEPAGE;
-    include_once "views/login.php";
+    //HOMEPAGE com o site controller;
+    $siteController = new SiteController();
+    //$siteController->redirectToRoute("site","index");
 } else{
     if (isset($_GET['id'])){
         $id = $_GET['id'];
@@ -26,6 +27,14 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
     $controller=$_GET['c'];
     $action=$_GET['a'];
     switch ($controller){
+        case('site'):
+            switch ($action){
+                case ('index'):
+                    $siteController = new SiteController();
+                    $siteController->renderView("home.php");
+                    break;
+            }
+            break;
         case ('user'):
             switch ($action){
                 case ('funcionario'):
@@ -49,6 +58,7 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                     $userController->store();
                     break;
                 case('edit'):
+                    //CASO N HAJA ID
                     $userController = new UserController();
                     $userController->edit($id);
                     break;

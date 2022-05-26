@@ -24,6 +24,7 @@
             <a href="?c=linhafatura&a=create">Linha Fatura</a>
             <a href="?c=iva&a=create">Iva</a>
         </nav>
+        <img class="bgimg-1 w3-display-container w3-opacity-min"alt="Me" width="1500" height="900">
     </header>
 
 </main>

@@ -2,14 +2,14 @@
     <div class="form">
         <form class="login-form" method="POST" action="?c=user&a=store">
             <h2>Adicionar Utilizador</h2>
-            <input type="text" name="username" placeholder="Username"/>
-            <input type="password" name="password" placeholder="Password"/>
-            <input type="text" name="telefone" placeholder="Telefone">
-            <input type="text" name="email" placeholder="Email">
-            <input type="text" name="nif" placeholder="NIF">
-            <input type="text" name="morada" placeholder="Morada">
-            <input type="text" name="localidade" placeholder="Localidade">
-            <input type="text" name="codigopostal" placeholder="Código Postal">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="telefone" placeholder="Telefone" required>
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="text" name="nif" placeholder="NIF" required>
+            <input type="text" name="morada" placeholder="Morada" required>
+            <input type="text" name="localidade" placeholder="Localidade" required>
+            <input type="text" name="codigopostal" placeholder="Código Postal" required>
             <?php $_POST['userid']=1;if($_POST['userid']==1): //SE FOR 1(ADMIN)?>
                 <select name="role">
                     <option value="2">Funcionário</option>
