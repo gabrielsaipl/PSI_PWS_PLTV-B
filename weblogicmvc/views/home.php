@@ -15,7 +15,7 @@
 </head>
 <body>
     <main>
-    <header>
+    <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
         <h1>Fatura+</h1>
         <nav>
             <a href="#">First tab</a>
@@ -23,17 +23,12 @@
             <a href="#">Third tab</a>
             <a href="#">Fourth tab</a>
         </nav>
+        <!-- Header -->
+  <img class="bgimg-1 w3-display-container w3-opacity-min"alt="Me" width="1500" height="900">
+      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span>
+
     </header>
 
 </main>
-<div class="login-page">
-    <div class="form">
-    <form class="login-form">
-      <input type="text" id="username" placeholder="username"/>
-      <input type="password" id="password" placeholder="password"/>
-      <button>login</button>
-    </form>
-  </div>
-</div>
 </body>
 </html>
