@@ -22,7 +22,7 @@ class UserController extends SiteController
         if(is_null($user)){
             //MOSTRAR POPUP
         } else {
-            $this->renderView("UsersView/show.php",[
+            $this->renderView("UsersView/showUser.php",[
                 "user" => $user,
             ]);
         }

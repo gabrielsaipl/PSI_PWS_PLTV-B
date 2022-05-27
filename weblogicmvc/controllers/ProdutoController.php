@@ -3,18 +3,24 @@
 class ProdutoController extends SiteController
 {
     public function index(){
+        $ivas = Iva::all();
         $produtos = Produto::All();
-        var_dump($produtos);
-        //MOSTRAR VISTA DE LISTAR PRODUTOS
+        $this->renderView("ProdutosView/listarProduto.php",[
+            'produtos' => $produtos,
+            'ivas' => $ivas
+        ]);
     }
 
     public function show($id){
         $produto = Produto::find([$id]);
-
+        $iva = Iva::find([$produto->iva_id]);
         if(is_null($produto)){ //SE N EXISTIR O PRODUTO
             //MOSTRAR POPUP
         } else {
-            // MOSTRAR VISTA COM OS DETALHES
+            $this->renderView("ProdutosView/showProduto.php",[
+                'produto' => $produto,
+                'iva' => $iva,
+            ]);
         }
     }
 
@@ -37,11 +43,15 @@ class ProdutoController extends SiteController
     }
 
     public function edit($id){
+        $ivas = Iva::all();
         $produto = Produto::find([$id]);
         if (is_null($produto)){
             // MOSTRAR POPUP ERRO
         } else {
-            //MOSTRAR VISTA EDITAR O PRODUTO
+            $this->renderView("ProdutosView/editProduto.php",[
+                'produto' => $produto,
+                'ivas' => $ivas,
+            ]);
         }
     }
 
@@ -50,7 +60,7 @@ class ProdutoController extends SiteController
         $produto->update_attributes($_POST);
         if ($produto->is_valid()){
             $produto->save();
-            // MOSTRAR A LISTA DE PRODUTOS
+            $this->redirectToRoute("produto","index");
         } else {
             // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
         }

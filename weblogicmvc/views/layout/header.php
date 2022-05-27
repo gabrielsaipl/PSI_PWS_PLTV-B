@@ -20,7 +20,7 @@
         <nav>
             <a href="?c=user&a=cliente">Clientes</a>
             <a href="?c=user&a=Funcionario">Funcionarios</a>
-            <a href="?c=produto&a=create">Produto</a>
+            <a href="?c=produto&a=index">Produto</a>
             <a href="?c=fatura&a=create">Fatura</a>
             <a href="?c=linhafatura&a=create">Linha Fatura</a>
             <a href="?c=iva&a=create">Iva</a>
