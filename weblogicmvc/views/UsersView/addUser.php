@@ -10,7 +10,7 @@
             <input type="text" name="morada" placeholder="Morada" required>
             <input type="text" name="localidade" placeholder="Localidade" required>
             <input type="text" name="codigopostal" placeholder="Código Postal" required>
-            <?php $_POST['userid']=1;if($_POST['userid']==1): //SE FOR 1(ADMIN)?>
+            <?php $_SESSION['role']=1;if($_SESSION['role']==1): //SE FOR 1(ADMIN)?>
                 <select name="role">
                     <option value="2">Funcionário</option>
                     <option value="3">Cliente</option>
