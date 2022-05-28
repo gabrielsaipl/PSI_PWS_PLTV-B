@@ -4,8 +4,9 @@ class IvaController extends SiteController
 {
     public function index(){
         $ivas = Iva::All();
-        var_dump($ivas);
-        //MOSTRAR VISTA DE LISTAR
+        $this->renderView("IvaView/listarIva.php",[
+            'ivas' => $ivas,
+        ]);
     }
 
     public function show($id){
@@ -14,7 +15,9 @@ class IvaController extends SiteController
         if(is_null($iva)){ //SE N EXISTIR
             //MOSTRAR POPUP
         } else {
-            // MOSTRAR VISTA COM OS DETALHES
+            $this->renderView("IvaView/showIva.php",[
+                'iva' => $iva,
+            ]);
         }
     }
 
@@ -39,7 +42,9 @@ class IvaController extends SiteController
         if (is_null($iva)){
             // MOSTRAR POPUP ERRO
         } else {
-            //MOSTRAR VISTA EDITAR
+            $this->renderView("IvaView/editIva.php",[
+                "iva" => $iva,
+            ]);
         }
     }
 
@@ -48,7 +53,7 @@ class IvaController extends SiteController
         $iva->update_attributes($_POST);
         if ($iva->is_valid()){
             $iva->save();
-            // MOSTRAR A LISTA
+            $this->redirectToRoute("iva","index");
         } else {
             // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
         }

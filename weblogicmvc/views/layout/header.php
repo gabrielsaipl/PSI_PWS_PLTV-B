@@ -23,7 +23,7 @@
             <a href="?c=produto&a=index">Produto</a>
             <a href="?c=fatura&a=create">Fatura</a>
             <a href="?c=linhafatura&a=create">Linha Fatura</a>
-            <a href="?c=iva&a=create">Iva</a>
+            <a href="?c=iva&a=index">Iva</a>
         </nav>
         <img class="bgimg-1 w3-display-container w3-opacity-min"alt="Me" width="1500" height="900">
     </header>
