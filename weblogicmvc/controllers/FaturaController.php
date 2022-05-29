@@ -3,18 +3,24 @@
 class FaturaController extends SiteController
 {
     public function index(){
-        $fatura = Fatura::All();
-
-        //MOSTRAR VISTA DE LISTAR
+        $faturas = Fatura::All();
+        $this->renderView("FaturasView/listarFatura.php",[
+            "faturas"=>$faturas,
+        ]);
     }
 
     public function show($id){
         $fatura = Fatura::find([$id]);
-
+        $cliente = User::find([$fatura->usercliente_id]);
+        $funcionario = User::find([$fatura->userfuncionario_id]);
         if(is_null($fatura)){ //SE N EXISTIR
             //MOSTRAR POPUP
         } else {
-            // MOSTRAR VISTA COM OS DETALHES
+            $this->renderView("FaturasView/showFatura.php",[
+                "fatura" => $fatura,
+                "cliente" => $cliente,
+                "funcionario" => $funcionario,
+            ]);
         }
     }
 
