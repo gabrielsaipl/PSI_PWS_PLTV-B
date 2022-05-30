@@ -8,6 +8,7 @@
         <p> <?=$empresa->nif?></p>
         <p> <?=$empresa->email?></p>
         <p> <?=$empresa->telefone?></p>
+        <a href="index.php?c=empresa&a=edit"><button>Editar</button></a>
     </div>
 </div>
 <div class="col-sm-6">

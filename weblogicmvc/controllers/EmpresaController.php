@@ -7,18 +7,16 @@ class EmpresaController extends SiteController
         $empresa = new Empresa($_POST);
         if ($empresa->is_valid()){
             $empresa->save();
-            //$this->redirectToRoute("","");
         } else{
-            echo '<script>alert("Erro ao criar a fatura")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            var_dump($empresa);
-            //$this->redirectToRoute("fatura","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            echo '<script>alert("Erro ao criar a empresa")</script>';
+            $this->redirectToRoute("empresa","edit");
         }
     }
 
-    public function edit($id){
-        $empresa = Empresa::find([$id]);
+    public function edit(){
+        $empresa = Empresa::first();
         if (is_null($empresa)){
-            // MOSTRAR POPUP ERRO
+            // É PORQUE AINDA NÃO EXISTE EMPRESA E VAI REENCAMINHAR PARA O STORE
         } else {
             $this->renderView("EmpresaView/editEmpresa.php",[
                 "empresa" => $empresa,
@@ -26,20 +24,19 @@ class EmpresaController extends SiteController
         }
     }
 
-    public function update($id){
-        $empresa = Empresa::find([$id]);
+    public function update(){
+        $empresa = Empresa::first();
         $empresa->update_attributes($_POST);
         if ($empresa->is_valid()){
             $empresa->save();
-            // MOSTRAR VISTA
+            $this->redirectToRoute("empresa","show");
         } else {
             // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
         }
     }
 
-    public function show($id){
-        $empresa = Empresa::find([$id]);
-
+    public function show(){
+        $empresa = Empresa::first();
         if(is_null($empresa)){ //SE N EXISTIR
             //MOSTRAR POPUP
         } else {

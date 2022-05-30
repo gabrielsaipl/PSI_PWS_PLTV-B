@@ -35,14 +35,14 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                     break;
                 case ('zonareservada'):
                     $siteController = new SiteController();
-                    $siteController->renderView("zonareservada1.php");
+                    $siteController->renderView("zonareservada.php");
                     break;
             }
             break;
         case('login'):
             switch ($action) {
                 case ('login'):
-                    $siteController = new LoginController();
+                    $siteController = new SiteController();
                     $siteController->renderView("login.php");
                     break;
             }
@@ -199,15 +199,15 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
             switch ($action) {
                 case ('edit'):
                     $empresaController = new EmpresaController();
-                    $empresaController->edit($id);
+                    $empresaController->edit();
                     break;
                 case ('update'):
                     $empresaController = new EmpresaController();
-                    $empresaController->update($id);
+                    $empresaController->update();
                     break;
                 case ('show'):
                     $empresaController = new EmpresaController();
-                    $empresaController->show($id);
+                    $empresaController->show();
                     break;
             }
             break;
