@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5910df15-0184-4fda-b067-a894d49b63a3" name="Changes" comment="" />
+    <list default="true" id="b5ff49ac-6519-462b-9fbf-39656a276b95" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/weblogicmvc/controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PSI_PWS_PLTV-B.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PSI_PWS_PLTV-B.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weblogicmvc/public/css/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/public/css/css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weblogicmvc/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weblogicmvc/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weblogicmvc/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/views/layout/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weblogicmvc/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/views/login.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/weblogicmvc/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -16,32 +26,57 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="29biRWu460EACMOtoXorXnKyF2O" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/weblogicmvc/vendor/kylekatarnls/update-helper" />
+      <path value="$PROJECT_DIR$/weblogicmvc/vendor/composer" />
+      <path value="$PROJECT_DIR$/weblogicmvc/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/weblogicmvc/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/weblogicmvc/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/weblogicmvc/vendor/php-activerecord/php-activerecord" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="29tH5hCAZ7kzMinHvQoPjMMkv84" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/weblogicmvc/controllers" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\PSI_PWS_PLTV-B\weblogicmvc\controllers" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5910df15-0184-4fda-b067-a894d49b63a3" name="Changes" comment="" />
-      <created>1653388178288</created>
+      <changelist id="b5ff49ac-6519-462b-9fbf-39656a276b95" name="Changes" comment="" />
+      <created>1653925280518</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1653388178288</updated>
-      <workItem from="1653388180030" duration="518000" />
+      <updated>1653925280518</updated>
+      <workItem from="1653925282665" duration="1288000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
