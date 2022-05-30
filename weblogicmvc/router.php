@@ -18,7 +18,6 @@ require_once "models/Linhafatura.php";
 require_once "models/Produto.php";
 
 if(!isset($_GET['c'])&&!isset($_GET['a'])){
-    //HOMEPAGE com o site controller;
     $siteController = new SiteController();
     $siteController->redirectToRoute("site","index");
 } else{
