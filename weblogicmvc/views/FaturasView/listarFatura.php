@@ -17,7 +17,8 @@
             <tbody>
             <?php foreach ($faturas as $fatura) { ?>
                 <tr>
-                    <td><?=$fatura->usercliente_id?></td>
+                    <?php $user = User::find([$fatura->usercliente_id])?>
+                    <td><?=$user->username?></td>
                     <td><?=$fatura->data?></td>
                     <?php
                     if ($fatura->estado == 1) echo "<td>Emitida</td>";

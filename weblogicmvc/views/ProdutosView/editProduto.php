@@ -5,7 +5,7 @@
             <input type="text" name="descricao" value="<?=$produto->descricao?>" placeholder="Descrição" required>
             <input type="text" name="referencia" value="<?=$produto->referencia?>" placeholder="Referência" required>
             <input type="text" name="preco" value="<?=$produto->preco?>" placeholder="Preço" required>
-            <input type="text" name="stock" value="<?=$produto->stock?>" placeholder="Stock" required>
+            <input type="number" name="stock" value="<?=$produto->stock?>" placeholder="Stock" required>
 
             <select name="iva_id">
                 <?php foreach($ivas as $iva){?>

@@ -5,7 +5,7 @@
             <input type="text" name="referencia" placeholder="Referência" required>
             <input type="text" name="descricao" placeholder="Descrição" required>
             <input type="text" name="preco" placeholder="Preço" required>
-            <input type="text" name="stock" placeholder="Stock" required>
+            <input type="number" name="stock" placeholder="Stock" required>
             <select name="iva_id">
                 <?php foreach($ivas as $iva){?>
                     <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
