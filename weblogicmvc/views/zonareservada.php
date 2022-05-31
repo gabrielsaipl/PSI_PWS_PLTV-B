@@ -5,8 +5,8 @@
             <div id="form_scroll">
                 <div class="space"></div>
                 <?php
-                    $_SESSION['userid'] = 1;
-                    $_SESSION['role'] = 2;
+                    $_SESSION['userid'] = 2;
+                    $_SESSION['role'] = 1;
                     $_SESSION['username'] = "Rafael Bento";
                 ?>
                 <?php if($_SESSION['role'] == 3):?>
