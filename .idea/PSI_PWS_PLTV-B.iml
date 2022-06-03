@@ -10,6 +10,7 @@
       <excludeFolder url="file://$MODULE_DIR$/weblogicmvc/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/weblogicmvc/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/weblogicmvc/vendor/php-activerecord/php-activerecord" />
+      <excludeFolder url="file://$MODULE_DIR$/weblogicmvc/vendor/php-activerecord/php-activerecord 2" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

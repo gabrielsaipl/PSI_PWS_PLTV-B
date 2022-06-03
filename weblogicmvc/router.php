@@ -1,8 +1,9 @@
 <?php
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1);
 require_once "boot.php";
 
-require_once "controllers/LoginController.php";
 require_once "controllers/SiteController.php";
+require_once "controllers/LoginController.php";
 require_once "controllers/UserController.php";
 require_once "controllers/EmpresaController.php";
 require_once "controllers/FaturaController.php";
@@ -16,6 +17,7 @@ require_once "models/Iva.php";
 require_once "models/Fatura.php";
 require_once "models/Linhafatura.php";
 require_once "models/Produto.php";
+require_once "models/Auth.php";
 
 if(!isset($_GET['c'])&&!isset($_GET['a'])){
     $siteController = new SiteController();
@@ -24,6 +26,7 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
     if (isset($_GET['id'])){
         $id = $_GET['id'];
     }
+
     $controller=$_GET['c'];
     $action=$_GET['a'];
     switch ($controller){
@@ -41,9 +44,13 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
             break;
         case('login'):
             switch ($action) {
-                case ('login'):
+                case ('index'):
                     $siteController = new SiteController();
                     $siteController->renderView("login.php");
+                    break;
+                case ('login'):
+                    $siteController = new LoginController();
+                    $siteController->login();
                     break;
             }
         case ('user'):

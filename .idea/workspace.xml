@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5ff49ac-6519-462b-9fbf-39656a276b95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/weblogicmvc/controllers/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weblogicmvc/models/Auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/PSI_PWS_PLTV-B.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PSI_PWS_PLTV-B.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weblogicmvc/public/css/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/public/css/css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weblogicmvc/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/controllers/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weblogicmvc/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weblogicmvc/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/views/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weblogicmvc/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/views/layout/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weblogicmvc/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/weblogicmvc/views/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +16,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/weblogicmvc/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -34,6 +34,7 @@
       <path value="$PROJECT_DIR$/weblogicmvc/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/weblogicmvc/vendor/nesbot/carbon" />
       <path value="$PROJECT_DIR$/weblogicmvc/vendor/php-activerecord/php-activerecord" />
+      <path value="$PROJECT_DIR$/weblogicmvc/vendor/php-activerecord/php-activerecord 2" />
     </include_path>
   </component>
   <component name="ProjectId" id="29tH5hCAZ7kzMinHvQoPjMMkv84" />
@@ -62,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653925280518</updated>
       <workItem from="1653925282665" duration="1288000" />
+      <workItem from="1654168632528" duration="5395000" />
     </task>
     <servers />
   </component>
