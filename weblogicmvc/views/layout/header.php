@@ -19,11 +19,11 @@
         <h1>Fatura+</h1>
         <nav>
             <a href="?c=site&a=index">Home</a>
-            <a href="?c=login&a=login">Login</a>
             <?php
-            $_SESSION['userid']=1;
-            if(isset($_SESSION['userid'])):?>
+            if(isset($_SESSION)):?>
                 <a href="?c=site&a=zonareservada">Zona Reservada</a>
+            <?php else:
+                ?> <a href="?c=login&a=index">Login</a>
             <?php endif;?>
         </nav>
     </header>

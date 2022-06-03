@@ -34,11 +34,11 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
             switch ($action){
                 case ('index'):
                     $siteController = new SiteController();
-                    $siteController->renderView("home.php");
+                    $siteController->home();
                     break;
                 case ('zonareservada'):
                     $siteController = new SiteController();
-                    $siteController->renderView("zonareservada.php");
+                    $siteController->zonareservada();
                     break;
             }
             break;
@@ -46,7 +46,7 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
             switch ($action) {
                 case ('index'):
                     $siteController = new SiteController();
-                    $siteController->renderView("login.php");
+                    $siteController->index();
                     break;
                 case ('login'):
                     $siteController = new LoginController();
