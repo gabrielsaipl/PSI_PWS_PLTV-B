@@ -2,60 +2,51 @@
 
 class LinhafaturaController extends SiteController
 {
-    public function index(){
-        $linhaFatura = Linhafatura::All();
-
-        //MOSTRAR VISTA DE LISTAR
+    public function create($id){
+        $produtos = Produto::all();
+        $this->renderView("LinhaFaturaView/addLinhaFatura.php",[
+            'idFatura' => $id,
+            'produtos' => $produtos,
+        ]);
     }
 
-    public function show($id){
-        $linhaFatura = Linhafatura::find([$id]);
-
-        if(is_null($linhaFatura)){ //SE N EXISTIR
-            //MOSTRAR POPUP
-        } else {
-            // MOSTRAR VISTA COM OS DETALHES
-        }
-    }
-
-    public function create(){
-        $this->renderView("LinhaFaturaView/addLinhaFatura.php");
-    }
-
-    public function store(){
+    public function store()
+    {
         $linhaFatura = new Linhafatura($_POST);
-        if ($linhaFatura->is_valid()){
-            $linhaFatura->save();
-            $this->redirectToRoute("linhafatura","index");
-        } else{
-            echo '<script>alert("Erro ao criar o utilizador")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            $this->redirectToRoute("user","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
-        }
-    }
-
-    public function edit($id){
-        $linhaFatura = Linhafatura::find([$id]);
-        if (is_null($linhaFatura)){
-            // MOSTRAR POPUP ERRO
+        $produto = Produto::find([$linhaFatura->produto_id]);
+        $fatura = Fatura::find([$linhaFatura->fatura_id]);
+        if ($produto->stock > $linhaFatura->quantidade) {
+            $linhaFatura->valorunitario = $produto->preco;       // RECEBE O VALOR UNITARIO (VALOR DO PRODUTO)
+            $linhaFatura->valoriva = $produto->iva->percentagem / 100 * $produto->preco; // RECEBE O VALOR DO IVA DO PRODUTO
+            if ($linhaFatura->is_valid()) {
+                $linhaFatura->save();
+                $produto->stock = $produto->stock - $linhaFatura->quantidade;       // REDUZ O STOCK DO PRODUTO
+                $produto->save();           // GRAVA O PRODUTO
+                $fatura->valortotal += $linhaFatura->valorunitario * $linhaFatura->quantidade;     //ALTERA O VALOR TOTAL NA FATURA
+                $fatura->ivatotal += $linhaFatura->valoriva * $linhaFatura->quantidade;    //ALTERA O VALOR DO IVA TOTAL NA FATURA
+                $fatura->save();            // GRAVA A FATURA
+                header("Location:index.php?c=fatura&a=show&id=" . $linhaFatura->fatura_id);
+            } else {
+                echo '<script>alert("Erro ao criar a linha de fatura")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
+                $this->redirectToRoute("linhafatura", "create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            }
         } else {
-            //MOSTRAR VISTA EDITAR
+            // ERRO A DIZER QUE O STOCK É INFERIOR À QUANTIDADE DA LINHA DE FATURA
+            // REDIRECT PARA A FATURA
+            echo "quantidade de stock inferior";
         }
     }
 
-    public function update($id){
-        $linhaFatura = Linhafatura::find([$id]);
-        $linhaFatura->update_attributes($_POST);
-        if ($linhaFatura->is_valid()){
-            $linhaFatura->save();
-            // MOSTRAR A LISTA
-        } else {
-            // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
-        }
-    }
-
-    public function delete($id){ // SE NECESSÁRIO
+    public function delete($id){
         $linhaFatura = Linhafatura::find([$id]);
         $linhaFatura->delete();
-        //MOSTRAR A LISTA
+        $produto = Produto::find([$linhaFatura->produto_id]);
+        $produto->stock += $linhaFatura->quantidade;    //VOLTA A RECOLOCAR O STOCK
+        $produto->save();
+        $fatura = Fatura::find([$linhaFatura->fatura_id]);
+        $fatura->valortotal -= $linhaFatura->valorunitario * $linhaFatura->quantidade;     //ALTERA O VALOR TOTAL NA FATURA
+        $fatura->ivatotal -= $linhaFatura->valoriva * $linhaFatura->quantidade;    //ALTERA O VALOR DO IVA TOTAL NA FATURA
+        $fatura->save();
+        header("Location:index.php?c=fatura&a=show&id=".$linhaFatura->fatura_id);
     }
 }

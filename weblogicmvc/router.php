@@ -157,41 +157,29 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                     $faturaController = new FaturaController();
                     $faturaController->store();
                     break;
-                case('edit'):
-                    $faturaController = new FaturaController();
-                    $faturaController->edit($id);
-                    break;
                 case('update'):
                     $faturaController = new FaturaController();
                     $faturaController->update($id);
+                    break;
+                case('emitir'):
+                    $faturaController = new FaturaController();
+                    $faturaController->emitir($id);
                     break;
             }
             break;
         case ('linhafatura'):
             switch ($action) {
-                case ('index'):
-                    $linhafaturaController = new LinhafaturaController();
-                    $linhafaturaController->index();
-                    break;
-                case('show'):
-                    $linhafaturaController = new LinhafaturaController();
-                    $linhafaturaController->show($id);
-                    break;
                 case('create'):
                     $linhafaturaController = new LinhafaturaController();
-                    $linhafaturaController->create();
+                    $linhafaturaController->create($id);
                     break;
                 case('store'):
                     $linhafaturaController = new LinhafaturaController();
                     $linhafaturaController->store();
                     break;
-                case('edit'):
+                case('delete'):
                     $linhafaturaController = new LinhafaturaController();
-                    $linhafaturaController->edit($id);
-                    break;
-                case('update'):
-                    $linhafaturaController = new LinhafaturaController();
-                    $linhafaturaController->update($id);
+                    $linhafaturaController->delete($id);
                     break;
             }
             break;

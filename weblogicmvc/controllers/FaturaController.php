@@ -43,15 +43,6 @@ class FaturaController extends SiteController
         }
     }
 
-    public function edit($id){
-        $fatura = Fatura::find([$id]);
-        if (is_null($fatura)){
-            // MOSTRAR POPUP ERRO
-        } else {
-            //MOSTRAR VISTA EDITAR
-        }
-    }
-
     public function update($id){
         $fatura = Fatura::find([$id]);
         $fatura->update_attributes($_POST);
@@ -61,5 +52,12 @@ class FaturaController extends SiteController
         } else {
             // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
         }
+    }
+
+    public function emitir($id){
+        $fatura = Fatura::find([$id]);
+        $fatura->estado = 1;
+        $fatura->save();
+        $this->redirectToRoute("fatura","index");
     }
 }
