@@ -1,14 +1,10 @@
+<?php ?>
 <div class="login-page">
     <div class="form">
         <div id="form">
             <h2>Zona reservada</h2>
             <div id="form_scroll">
                 <div class="space"></div>
-                <?php
-                    $_SESSION['userid'] = 2;
-                    $_SESSION['role'] = 1;
-                    $_SESSION['username'] = "Rafael Bento";
-                ?>
                 <?php if($_SESSION['role'] == 3):?>
                     <a href=""><button>Histórico de Faturas</button></a>
                     <div class="space"></div>

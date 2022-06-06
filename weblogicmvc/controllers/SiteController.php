@@ -12,5 +12,10 @@ class SiteController
         require_once "views/$view";
         require_once "views/layout/footer.php";
     }
+    public function zonareservada(){
+        $sessao = new Auth();
+        $this->renderView("zonareservada.php");
+    }
+
 
 }
