@@ -1,11 +1,12 @@
 <h2 class="text-left top-space">Faturas</h2>
-<div class="col-sm-6">
-    <h3>Criar nova</h3>
-    <p>
-        <a href="router.php?c=fatura&a=create" class="btn btn-info" role="button">Novo</a>
-    </p>
-</div>
-</div>
+<?php if($_SESSION['role'] != 3):?>
+    <div class="col-sm-6">
+        <h3>Criar nova</h3>
+        <p>
+            <a href="?c=fatura&a=create" class="btn btn-info" role="button">Novo</a>
+        </p>
+    </div>
+<?php endif;?>
 <div class="row">
     <div class="col-sm-12">
         <table class="table tablestriped">

@@ -17,16 +17,11 @@ class Auth
             $_SESSION['userid'] = $utilizador -> id;
             $_SESSION['role'] = $utilizador -> role;
             $_SESSION['username'] = $utilizador -> username;
-            echo $_SESSION['userid'];
-            echo $_SESSION['role'];
-            echo $_SESSION['username'];
-            echo '<script type="text/javascript">alert("Session started successfuly/Welcome ' . $user . '")</script>';
-            echo '<script>window.location="router.php?c=site&a=zonareservada";</script>
-';
-
+            echo '<script type="text/javascript">alert("Sessão Iniciada/Bem vindo ' . $user . '")</script>';
+            echo '<script>window.location="router.php?c=site&a=zonareservada";</script>';
         } else {
             echo '<script type="text/javascript">';
-            echo 'alert("Invalid Credentials");';
+            echo 'alert("Credenciais Inválidas!");';
             echo '</script>';
             echo '<script>window.location="router.php?c=login&a=index";</script>';
         }
@@ -60,4 +55,7 @@ class Auth
         }
     }
 
+    public function logout(){
+        session_destroy();
+    }
 }

@@ -17,5 +17,7 @@ class SiteController
         $this->renderView("zonareservada.php");
     }
 
-
+    public  function home(){
+        $this->renderView("home.php");
+    }
 }

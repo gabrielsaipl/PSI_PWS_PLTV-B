@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1);
 require_once "boot.php";
 
 require_once "controllers/SiteController.php";
@@ -45,12 +44,16 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
         case('login'):
             switch ($action) {
                 case ('index'):
-                    $siteController = new SiteController();
-                    $siteController->index();
+                    $loginController = new LoginController();
+                    $loginController->index();
                     break;
                 case ('login'):
-                    $siteController = new LoginController();
-                    $siteController->login();
+                    $loginController = new LoginController();
+                    $loginController->login();
+                    break;
+                case('logout'):
+                    $loginController = new LoginController();
+                    $loginController->logout();
                     break;
             }
         case ('user'):
@@ -171,6 +174,10 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                 case('emitir'):
                     $faturaController = new FaturaController();
                     $faturaController->emitir($id);
+                    break;
+                case('historico'):
+                    $faturaController = new FaturaController();
+                    $faturaController->historico();
                     break;
             }
             break;

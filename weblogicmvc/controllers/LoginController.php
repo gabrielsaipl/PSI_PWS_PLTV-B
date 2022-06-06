@@ -9,4 +9,10 @@ class LoginController extends SiteController
         $auth = new Auth();
         $auth ->CheckAuth();
     }
+
+    public function logout(){
+        $sessao = new Auth();
+        $sessao ->logout();
+        $this->renderView("login.php");
+    }
 }

@@ -43,21 +43,18 @@ class FaturaController extends SiteController
         }
     }
 
-    public function update($id){
-        $fatura = Fatura::find([$id]);
-        $fatura->update_attributes($_POST);
-        if ($fatura->is_valid()){
-            $fatura->save();
-            // MOSTRAR A LISTA
-        } else {
-            // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
-        }
-    }
-
     public function emitir($id){
         $fatura = Fatura::find([$id]);
         $fatura->estado = 1;
         $fatura->save();
         $this->redirectToRoute("fatura","index");
+    }
+
+    public function historico(){
+        $sessao = new Auth();
+        $faturas = Fatura::all(array('conditions'=> 'usercliente_id = '. $_SESSION['userid']));
+        $this->renderView("FaturasView/listarFatura.php",[
+            "faturas"=>$faturas,
+        ]);
     }
 }
