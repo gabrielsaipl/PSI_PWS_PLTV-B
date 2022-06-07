@@ -28,13 +28,13 @@ class Auth
     }
     public function IsLoggedIn()
     {
-        $user = $_POST['name'];
+        /*$user = $_POST['name'];
         $psw = $_POST['password'];
         if (isset($_SESSION['userid']) && isset($_SESSION['role']) && isset($_SESSION['username']))       //checking current session
         {
             echo '<script type="text/javascript">';
             echo 'alert("Looks like someone was logged in... Verifing if its you");';
-            echo '</script>';
+            echo '</script>';*/
             $utilizador = User::all(array('conditions'=> 'username = "'. $user .'" and password = "'. $psw .'"'));
             if ($utilizador != null)     //Checks for user in the database
             {
