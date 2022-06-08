@@ -3,6 +3,8 @@
 class ProdutoController extends SiteController
 {
     public function index(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $ivas = Iva::all();
         $produtos = Produto::All();
         $this->renderView("ProdutosView/listarProduto.php",[
@@ -12,6 +14,8 @@ class ProdutoController extends SiteController
     }
 
     public function show($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $produto = Produto::find([$id]);
         $iva = Iva::find([$produto->iva_id]);
         if(is_null($produto)){ //SE N EXISTIR O PRODUTO
@@ -25,6 +29,8 @@ class ProdutoController extends SiteController
     }
 
     public function create(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $ivas = Iva::all(array('conditions'=> 'emvigor = 1'));
         $this->renderView("ProdutosView/addProduto.php",[
             'ivas' => $ivas,
@@ -32,6 +38,8 @@ class ProdutoController extends SiteController
     }
 
     public function store(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $produto = new Produto($_POST);
         if ($produto->is_valid()){
             $produto->save();
@@ -43,6 +51,8 @@ class ProdutoController extends SiteController
     }
 
     public function edit($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $ivas = Iva::all();
         $produto = Produto::find([$id]);
         if (is_null($produto)){
@@ -56,6 +66,8 @@ class ProdutoController extends SiteController
     }
 
     public function update($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $produto = Produto::find([$id]);
         $produto->update_attributes($_POST);
         if ($produto->is_valid()){

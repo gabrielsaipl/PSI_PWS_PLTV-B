@@ -3,6 +3,8 @@
 class IvaController extends SiteController
 {
     public function index(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $ivas = Iva::All();
         $this->renderView("IvaView/listarIva.php",[
             'ivas' => $ivas,
@@ -10,6 +12,8 @@ class IvaController extends SiteController
     }
 
     public function show($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $iva = Iva::find([$id]);
 
         if(is_null($iva)){ //SE N EXISTIR
@@ -22,10 +26,14 @@ class IvaController extends SiteController
     }
 
     public function create(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $this->renderView("IvaView/addIva.php");
     }
 
     public function store(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $iva = new Iva($_POST);
         //var_dump($iva);
         if ($iva->is_valid()){
@@ -38,6 +46,8 @@ class IvaController extends SiteController
     }
 
     public function edit($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $iva = Iva::find([$id]);
         if (is_null($iva)){
             // MOSTRAR POPUP ERRO
@@ -49,6 +59,8 @@ class IvaController extends SiteController
     }
 
     public function update($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $iva = Iva::find([$id]);
         $iva->update_attributes($_POST);
         if ($iva->is_valid()){

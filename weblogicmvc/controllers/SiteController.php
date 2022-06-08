@@ -14,6 +14,7 @@ class SiteController
     }
     public function zonareservada(){
         $sessao = new Auth();
+        $sessao->IsLoggedIn();
         $this->renderView("zonareservada.php");
     }
 

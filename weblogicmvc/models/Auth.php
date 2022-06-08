@@ -18,41 +18,20 @@ class Auth
             $_SESSION['role'] = $utilizador -> role;
             $_SESSION['username'] = $utilizador -> username;
             echo '<script type="text/javascript">alert("Sessão Iniciada/Bem vindo ' . $user . '")</script>';
-            echo '<script>window.location="router.php?c=site&a=zonareservada";</script>';
+            echo '<script>window.location="index.php?c=site&a=zonareservada";</script>';
         } else {
             echo '<script type="text/javascript">';
             echo 'alert("Credenciais Inválidas!");';
             echo '</script>';
-            echo '<script>window.location="router.php?c=login&a=index";</script>';
+            echo '<script>window.location="index.php?c=login&a=index";</script>';
         }
     }
     public function IsLoggedIn()
     {
-        /*$user = $_POST['name'];
-        $psw = $_POST['password'];
-        if (isset($_SESSION['userid']) && isset($_SESSION['role']) && isset($_SESSION['username']))       //checking current session
-        {
-            echo '<script type="text/javascript">';
-            echo 'alert("Looks like someone was logged in... Verifing if its you");';
-            echo '</script>';*/
-            $utilizador = User::all(array('conditions'=> 'username = "'. $user .'" and password = "'. $psw .'"'));
-            if ($utilizador != null)     //Checks for user in the database
-            {
-                echo '<script type="text/javascript">';
-                echo 'alert("User verified :D");';
-                echo '</script>';
-            } else
-            {
-                echo '<script type="text/javascript">';
-                echo 'alert("invalid UserName or Password/Please Log Back in");';
-                echo '</script>';
-                unset($_SESSION['user']);
-                echo '<script>window.location="router.php";</script>';
-            }
+        if (!isset($_SESSION['userid'], $_SESSION['role'], $_SESSION['username'])){
+            echo '<script type="text/javascript">alert("Inicie Sessao primeiro"); window.location="index.php?c=login&a=index";</script>';
         }
-        else{
-            echo 'Please Login First';
-        }
+
     }
 
     public function logout(){
