@@ -6,7 +6,7 @@
             <div id="form_scroll">
                 <div class="space"></div>
                 <?php if($_SESSION['role'] == 3):?>
-                    <a href=""><button>Histórico de Faturas</button></a>
+                    <a href="index.php?c=fatura&a=historico"><button>Histórico de Faturas</button></a>
                     <div class="space"></div>
                 <?php else:?>
                     <a href="index.php?c=user&a=edit&id=<?= $_SESSION['userid']?>"><button>Atualizar Dados</button></a>

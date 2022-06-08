@@ -13,6 +13,7 @@ class FaturaController extends SiteController
         $fatura = Fatura::find([$id]);
         $cliente = User::find([$fatura->usercliente_id]);
         $funcionario = User::find([$fatura->userfuncionario_id]);
+        $empresa = Empresa::first();
         if(is_null($fatura)){ //SE N EXISTIR
             //MOSTRAR POPUP
         } else {
@@ -20,6 +21,7 @@ class FaturaController extends SiteController
                 "fatura" => $fatura,
                 "cliente" => $cliente,
                 "funcionario" => $funcionario,
+                "empresa" => $empresa,
             ]);
         }
     }
@@ -52,7 +54,7 @@ class FaturaController extends SiteController
 
     public function historico(){
         $sessao = new Auth();
-        $faturas = Fatura::all(array('conditions'=> 'usercliente_id = '. $_SESSION['userid']));
+        $faturas = Fatura::all(array('conditions'=> 'usercliente_id = '. $_SESSION['userid']."  and estado = 1"));
         $this->renderView("FaturasView/listarFatura.php",[
             "faturas"=>$faturas,
         ]);

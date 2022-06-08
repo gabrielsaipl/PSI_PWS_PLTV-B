@@ -121,8 +121,7 @@ CSS DA DIV DA ZONA RESERVADA
 }
 
 .login-page {
-
-    width: 380px;
+    width: 600px;
     padding: 8% 0 0;
     margin: auto;
 }
@@ -130,7 +129,7 @@ CSS DA DIV DA ZONA RESERVADA
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 500px;
+    max-width: 600px;
     padding: 45px;
     text-align: center;
     box-shadow: 10px 10px 30px green;
