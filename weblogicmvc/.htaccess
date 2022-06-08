@@ -1,6 +1,9 @@
 options -indexes
 order deny,allow
 deny from all
-<Files "router.php">
+<Files "index.php">
+allow from all
+</Files>
+<Files "">
 allow from all
 </Files>
