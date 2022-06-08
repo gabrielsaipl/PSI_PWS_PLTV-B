@@ -36,7 +36,6 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                     $siteController->home();
                     break;
                 case ('zonareservada'):
-
                     $siteController = new SiteController();
                     $siteController->zonareservada();
                     break;
@@ -174,7 +173,7 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                     break;
                 case('historico'):
                     $faturaController = new FaturaController();
-                    $faturaController->historico();
+                    $faturaController->historico($id);
                     break;
             }
             break;

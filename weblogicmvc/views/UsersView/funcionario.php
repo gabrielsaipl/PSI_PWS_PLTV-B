@@ -7,7 +7,7 @@
 <div class="col-sm-6">
     <h3>Criar novo</h3>
     <p>
-        <a href="router.php?c=user&a=create" class="btn btn-info" role="button">Novo</a>
+        <a href="?c=user&a=create" class="btn btn-info" role="button">Novo</a>
     </p>
 </div>
 </div>
@@ -26,8 +26,8 @@
                     <td><?=$funcionario->email?></td>
                     <td><?=$funcionario->telefone?></td>
                     <td>
-                        <a href="router.php?c=user&a=show&id=<?=$funcionario->id?>" class="btn btn-info" role="button">Detalhes</a>
-                        <a href="router.php?c=user&a=edit&id=<?=$funcionario->id?>" class="btn btn-info" role="button">Editar</a>
+                        <a href="?c=user&a=show&id=<?=$funcionario->id?>" class="btn btn-info" role="button">Detalhes</a>
+                        <a href="?c=user&a=edit&id=<?=$funcionario->id?>" class="btn btn-info" role="button">Editar</a>
                     </td>
                 </tr>
             <?php } ?>

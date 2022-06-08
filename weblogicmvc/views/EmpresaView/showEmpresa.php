@@ -12,7 +12,7 @@
     </div>
 </div>
 <div class="col-sm-6">
-    <p> <!-- REDIRECIONAR -->
-        <a href="router.php?" class="btn btn-info" role="button">Voltar</a>
+    <p>
+        <a href="?c=site&a=zonareservada" class="btn btn-info" role="button">Voltar</a>
     </p>
 </div>

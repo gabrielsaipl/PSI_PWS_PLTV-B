@@ -40,7 +40,7 @@
                 <td><?= $linhafatura->valorunitario?></td>
                 <td><?php echo $linhafatura->valorunitario * $linhafatura->quantidade?></td>
                 <?php if($fatura->estado == 0):?>
-                    <td><a href="router.php?c=linhafatura&a=delete&id=<?=$linhafatura->id?>" class="btn btn-info" role="button">Eliminar</a></td>
+                    <td><a href="?c=linhafatura&a=delete&id=<?=$linhafatura->id?>" class="btn btn-info" role="button">Eliminar</a></td>
                 <?php endif;?>
             </tr>
         <?php } ?>
@@ -62,11 +62,11 @@
 <div class="col-sm-6">
     <p>
         <?php if($fatura->estado == 0):?>
-            <a href="router.php?c=fatura&a=emitir&id=<?=$fatura->id?>" class="btn btn-info" role="button">Emitir</a>
-            <a href="router.php?c=linhafatura&a=create&id=<?=$fatura->id?>" class="btn btn-info" role="button">Nova Linha de Fatura</a>
+            <a href="?c=fatura&a=emitir&id=<?=$fatura->id?>" class="btn btn-info" role="button">Emitir</a>
+            <a href="?c=linhafatura&a=create&id=<?=$fatura->id?>" class="btn btn-info" role="button">Nova Linha de Fatura</a>
         <?php else:?>
             <button class="btn btn-info" onclick="printform('form')">Imprimir</button>
         <?php endif;?>
-        <a href="router.php?c=fatura&a=index" class="btn btn-info" role="button">Voltar</a>
+        <a href="?c=fatura&a=index" class="btn btn-info" role="button">Voltar</a>
     </p>
 </div>

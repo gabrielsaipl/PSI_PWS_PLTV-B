@@ -3,6 +3,7 @@
 class LoginController extends SiteController
 {
     public function index(){
+        $sessao = new Auth();
         $this->renderView("login.php");
     }
     public function login(){

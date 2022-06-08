@@ -19,6 +19,7 @@
                 <th><h3>Username</h3></th>
                 <th><h3>Email</h3></th>
                 <th><h3>Telefone</h3></th>
+                <th></th>
             </thead>
             <tbody>
             <?php foreach ($clientes as $cliente) { ?>
@@ -29,6 +30,7 @@
                     <td>
                         <a href="?c=user&a=show&id=<?=$cliente->id?>" class="btn btn-info" role="button">Detalhes</a>
                         <a href="?c=user&a=edit&id=<?=$cliente->id?>" class="btn btn-info" role="button">Editar</a>
+                        <a href="?c=fatura&a=historico&id=<?=$cliente->id?>" class="btn btn-info" role="button">Faturas</a>
                     </td>
                 </tr>
             <?php } ?>

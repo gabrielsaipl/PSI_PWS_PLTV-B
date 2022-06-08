@@ -19,6 +19,7 @@ class SiteController
     }
 
     public  function home(){
+        $sessao = new Auth();
         $this->renderView("home.php");
     }
 }

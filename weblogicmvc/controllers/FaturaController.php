@@ -62,11 +62,10 @@ class FaturaController extends SiteController
         $this->redirectToRoute("fatura","index");
     }
 
-    public function historico(){
+    public function historico($id){
         $auth = new Auth();
         $auth ->IsLoggedIn();
-        $sessao = new Auth();
-        $faturas = Fatura::all(array('conditions'=> 'usercliente_id = '. $_SESSION['userid']."  and estado = 1"));
+        $faturas = Fatura::all(array('conditions'=> 'usercliente_id = '. $id."  and estado = 1"));
         $this->renderView("FaturasView/listarFatura.php",[
             "faturas"=>$faturas,
         ]);
