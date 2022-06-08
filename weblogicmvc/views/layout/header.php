@@ -22,6 +22,7 @@
             <?php
             if(isset($_SESSION)):?>
                 <a href="?c=site&a=zonareservada">Zona Reservada</a>
+                <a href="?c=login&a=Logout">Logout</a>
             <?php else:
                 ?> <a href="?c=login&a=index">Login</a>
             <?php endif;?>
