@@ -9,15 +9,15 @@ class Auth
     }
     public function CheckAuth()
     {
-        $user = $_POST['name'];
+        $mail = $_POST['email'];
         $psw = $_POST['password'];
-        $utilizador = User::find(array('conditions'=> 'username = "'. $user .'" and password = "'. $psw .'"'));
+        $utilizador = User::find(array('conditions'=> 'email = "'. $mail .'" and password = "'. $psw .'"'));
         if ($utilizador != null)     //Checks for hard-coded uname and psw
         {
             $_SESSION['userid'] = $utilizador -> id;
             $_SESSION['role'] = $utilizador -> role;
-            $_SESSION['username'] = $utilizador -> username;
-            echo '<script type="text/javascript">alert("Sessão Iniciada/Bem vindo ' . $user . '")</script>';
+            $_SESSION['email'] = $utilizador -> email;
+            echo '<script type="text/javascript">alert("Sessão Iniciada Com Sucesso")</script>';
             echo '<script>window.location="index.php?c=site&a=zonareservada";</script>';
         } else {
             echo '<script type="text/javascript">';
@@ -28,7 +28,7 @@ class Auth
     }
     public function IsLoggedIn()
     {
-        if (!isset($_SESSION['userid'], $_SESSION['role'], $_SESSION['username'])){
+        if (!isset($_SESSION['userid'], $_SESSION['role'], $_SESSION['email'])){
             echo '<script type="text/javascript">alert("Inicie Sessao primeiro"); window.location="index.php?c=login&a=index";</script>';
         }
 
