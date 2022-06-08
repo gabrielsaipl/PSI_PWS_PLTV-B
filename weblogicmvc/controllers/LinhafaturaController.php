@@ -3,6 +3,8 @@
 class LinhafaturaController extends SiteController
 {
     public function create($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $produtos = Produto::all();
         $this->renderView("LinhaFaturaView/addLinhaFatura.php",[
             'idFatura' => $id,
@@ -12,6 +14,8 @@ class LinhafaturaController extends SiteController
 
     public function store()
     {
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $linhaFatura = new Linhafatura($_POST);
         $produto = Produto::find([$linhaFatura->produto_id]);
         $fatura = Fatura::find([$linhaFatura->fatura_id]);
@@ -38,6 +42,8 @@ class LinhafaturaController extends SiteController
     }
 
     public function delete($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $linhaFatura = Linhafatura::find([$id]);
         $linhaFatura->delete();
         $produto = Produto::find([$linhaFatura->produto_id]);

@@ -14,6 +14,8 @@ class EmpresaController extends SiteController
     }
 
     public function edit(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $empresa = Empresa::first();
         if (is_null($empresa)){
             // É PORQUE AINDA NÃO EXISTE EMPRESA E VAI REENCAMINHAR PARA O STORE
@@ -25,6 +27,8 @@ class EmpresaController extends SiteController
     }
 
     public function update(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $empresa = Empresa::first();
         $empresa->update_attributes($_POST);
         if ($empresa->is_valid()){
@@ -36,6 +40,8 @@ class EmpresaController extends SiteController
     }
 
     public function show(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
         $empresa = Empresa::first();
         if(is_null($empresa)){ //SE N EXISTIR
             //MOSTRAR POPUP
