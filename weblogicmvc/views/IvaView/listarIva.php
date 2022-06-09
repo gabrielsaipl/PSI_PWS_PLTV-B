@@ -2,7 +2,7 @@
 <div class="col-sm-6">
     <h3>Criar novo</h3>
     <p>
-        <a href="router.php?c=iva&a=create" class="btn btn-info" role="button">Novo</a>
+        <a href="index.php?c=iva&a=create" class="btn btn-info" role="button">Novo</a>
     </p>
 </div>
 </div>
@@ -25,8 +25,8 @@
                     <td>Inativo</td>
                     <?php endif;?>
                     <td>
-                        <a href="router.php?c=iva&a=show&id=<?=$iva->id?>" class="btn btn-info" role="button">Detalhes</a>
-                        <a href="router.php?c=iva&a=edit&id=<?=$iva->id?>" class="btn btn-info" role="button">Editar</a>
+                        <a href="index.php?c=iva&a=show&id=<?=$iva->id?>" class="btn btn-info" role="button">Detalhes</a>
+                        <a href="index.php?c=iva&a=edit&id=<?=$iva->id?>" class="btn btn-info" role="button">Editar</a>
                     </td>
                 </tr>
             <?php } ?>

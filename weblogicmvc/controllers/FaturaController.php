@@ -5,6 +5,7 @@ class FaturaController extends SiteController
     public function index(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $faturas = Fatura::All();
         $this->renderView("FaturasView/listarFatura.php",[
             "faturas"=>$faturas,
@@ -12,6 +13,7 @@ class FaturaController extends SiteController
     }
 
     public function show($id){
+        //verificar id no link
         $auth = new Auth();
         $auth ->IsLoggedIn();
         $fatura = Fatura::find([$id]);
@@ -33,6 +35,7 @@ class FaturaController extends SiteController
     public function create(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $clientes = User::all(array('conditions'=> 'role = 3'));
         $this->renderView("FaturasView/addFatura.php",[
             'clientes' => $clientes,
@@ -42,6 +45,7 @@ class FaturaController extends SiteController
     public function store(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $fatura = new Fatura($_POST);
         if ($fatura->is_valid()){
             $fatura->save();
@@ -56,6 +60,7 @@ class FaturaController extends SiteController
     public function emitir($id){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $fatura = Fatura::find([$id]);
         $fatura->estado = 1;
         $fatura->save();
@@ -63,6 +68,7 @@ class FaturaController extends SiteController
     }
 
     public function historico(){
+        //verificar id do link
         $auth = new Auth();
         $auth ->IsLoggedIn();
         $sessao = new Auth();

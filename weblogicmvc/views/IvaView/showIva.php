@@ -11,6 +11,6 @@
 </div>
 <div class="col-sm-6">
     <p>
-        <a href="router.php?c=iva&a=index" class="btn btn-info" role="button">Voltar</a>
+        <a href="index.php?c=iva&a=index" class="btn btn-info" role="button">Voltar</a>
     </p>
 </div>

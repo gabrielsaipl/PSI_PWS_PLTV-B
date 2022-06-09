@@ -5,6 +5,10 @@ class UserController extends SiteController
     public function funcionarios(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        if ($_SESSION['role'] != '3'){
+            echo '<script type="text/javascript">alert("Nao tem acesso a esta página")</script>';
+            echo '<script>window.location="index.php?c=site&a=zonareservada";</script>';
+        }
         $funcionarios = User::all(array('conditions'=> 'role = 2'));
         $this->renderView("UsersView/funcionario.php",[     // FALTA FILTRAR NA LISTA
             "funcionarios" => $funcionarios,
@@ -14,6 +18,8 @@ class UserController extends SiteController
     public function clientes(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
+
         $clientes = User::all(array('conditions'=> 'role = 3'));
         $this->renderView("UsersView/cliente.php",[     // FALTA FILTRAR NA LISTA
             "clientes" => $clientes,
@@ -28,6 +34,7 @@ class UserController extends SiteController
         } else {
             $auth = new Auth();
             $auth ->IsLoggedIn();
+            $auth ->IsCliente();
             $this->renderView("UsersView/showUser.php",[
                 "user" => $user,
             ]);
@@ -37,12 +44,14 @@ class UserController extends SiteController
     public function create(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $this->renderView("UsersView/addUser.php");
     }
 
     public function store(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $user = new User($_POST);
         if ($user->is_valid()){
             $user->save();
@@ -57,6 +66,7 @@ class UserController extends SiteController
     public function edit($id){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $user = User::find([$id]);  // SÓ EDITA SE FOR FUNCIONARIO
         if (is_null($user)){
             echo '<script>alert("Erro ao selecionar o ID")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
@@ -71,6 +81,7 @@ class UserController extends SiteController
     public function update($id){
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $user = User::find([$id]);
         $user->update_attributes($_POST);
         if ($user->is_valid()){

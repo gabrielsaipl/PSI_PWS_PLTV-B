@@ -13,6 +13,6 @@
 </div>
 <div class="col-sm-6">
     <p> <!-- REDIRECIONAR -->
-        <a href="router.php?" class="btn btn-info" role="button">Voltar</a>
+        <a href="index.php?" class="btn btn-info" role="button">Voltar</a>
     </p>
 </div>

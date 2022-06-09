@@ -26,7 +26,7 @@
                     else echo "<td>Em lançamento</td>";
                     ?>
                     <td>
-                        <a href="router.php?c=fatura&a=show&id=<?=$fatura->id?>" class="btn btn-info" role="button">Detalhes</a>
+                        <a href="index.php?c=fatura&a=show&id=<?=$fatura->id?>" class="btn btn-info" role="button">Detalhes</a>
                         <?php if ($fatura->estado == 1):?>
                         <a href="" class="btn btn-info" role="button">Imprimir</a>
                         <?php endif; ?>

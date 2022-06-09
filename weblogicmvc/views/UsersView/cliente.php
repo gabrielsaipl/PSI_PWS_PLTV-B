@@ -2,7 +2,7 @@
 <div class="col-sm-6">
     <h3>Criar novo</h3>
     <p>
-        <a href="router.php?c=user&a=create" class="btn btn-info" role="button">Novo</a>
+        <a href="index.php?c=user&a=create" class="btn btn-info" role="button">Novo</a>
     </p>
 </div>
 </div>
@@ -21,8 +21,8 @@
                     <td><?=$cliente->email?></td>
                     <td><?=$cliente->telefone?></td>
                     <td>
-                        <a href="router.php?c=user&a=show&id=<?=$cliente->id?>" class="btn btn-info" role="button">Detalhes</a>
-                        <a href="router.php?c=user&a=edit&id=<?=$cliente->id?>" class="btn btn-info" role="button">Editar</a>
+                        <a href="index.php?c=user&a=show&id=<?=$cliente->id?>" class="btn btn-info" role="button">Detalhes</a>
+                        <a href="index.php?c=user&a=edit&id=<?=$cliente->id?>" class="btn btn-info" role="button">Editar</a>
                     </td>
                 </tr>
             <?php } ?>
