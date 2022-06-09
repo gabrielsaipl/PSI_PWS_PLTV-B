@@ -17,11 +17,11 @@
 <div class="col-sm-6">
     <p>
         <?php if($user->role==2):?>
-            <a href="index.php?c=user&a=funcionario" class="btn btn-info" role="button">Voltar</a>
+            <a href="?c=user&a=funcionario" class="btn btn-info" role="button">Voltar</a>
         <?php elseif($user->role==3):?>
-            <a href="index.php?c=user&a=cliente" class="btn btn-info" role="button">Voltar</a>
-        <?php else :    // MANDAR PARA VISTA DE ZONA RESERVADA?>
-            <a href="index.php?c=site&a=home" class="btn btn-info" role="button">Voltar</a>
+            <a href="?c=user&a=cliente" class="btn btn-info" role="button">Voltar</a>
+        <?php else :?>
+            <a href="?c=site&a=zonareservada" class="btn btn-info" role="button">Voltar</a>
         <?php endif; ?>
     </p>
 </div>

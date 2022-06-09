@@ -16,8 +16,7 @@ class Auth
         {
             $_SESSION['userid'] = $utilizador -> id;
             $_SESSION['role'] = $utilizador -> role;
-            $_SESSION['email'] = $utilizador -> email;
-            echo '<script type="text/javascript">alert("Sessão Iniciada Com Sucesso")</script>';
+            $_SESSION['username'] = $utilizador -> username;
             echo '<script>window.location="index.php?c=site&a=zonareservada";</script>';
         } else {
             echo '<script type="text/javascript">';
@@ -28,10 +27,9 @@ class Auth
     }
     public function IsLoggedIn()
     {
-        if (!isset($_SESSION['userid'], $_SESSION['role'], $_SESSION['email'])){
+        if (!isset($_SESSION['userid'], $_SESSION['role'], $_SESSION['username'])){
             echo '<script type="text/javascript">alert("Inicie Sessao primeiro"); window.location="index.php?c=login&a=index";</script>';
         }
-
     }
 
     public function IsCliente(){

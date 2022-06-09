@@ -9,6 +9,6 @@
 </div>
 <div class="col-sm-6">
     <p>
-        <a href="index.php?c=produto&a=index" class="btn btn-info" role="button">Voltar</a>
+        <a href="?c=produto&a=index" class="btn btn-info" role="button">Voltar</a>
     </p>
 </div>
