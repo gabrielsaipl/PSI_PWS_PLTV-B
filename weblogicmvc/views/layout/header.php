@@ -16,16 +16,21 @@
 <body>
 <main>
     <header>
-        <h1>Fatura+</h1>
+        <h1 id="Logo">Fatura+</h1>
+        <?php if(isset($_SESSION['userid'])):?>
+            <h1 id="username"><?php echo $_SESSION['username']?></h1>
+        <?php endif;?>
         <nav>
             <a href="?c=site&a=index">Home</a>
             <?php
-            if(isset($_SESSION)):?>
+            if(isset($_SESSION['userid'])):?>
                 <a href="?c=site&a=zonareservada">Zona Reservada</a>
-                <a href="?c=login&a=Logout">Logout</a>
+                <a href="?c=login&a=logout">Logout</a>
+
             <?php else:
                 ?> <a href="?c=login&a=index">Login</a>
             <?php endif;?>
         </nav>
+
     </header>
 </main>

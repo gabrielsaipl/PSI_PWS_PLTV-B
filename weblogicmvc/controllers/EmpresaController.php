@@ -18,7 +18,7 @@ class EmpresaController extends SiteController
         $auth ->IsLoggedIn();
         $empresa = Empresa::first();
         if (is_null($empresa)){
-            // É PORQUE AINDA NÃO EXISTE EMPRESA E VAI REENCAMINHAR PARA O STORE
+            // É PORQUE AINDA NÃO EXISTE EMPRESA E VAI REENCAMINHAR PARA O CREATE/STORE
         } else {
             $this->renderView("EmpresaView/editEmpresa.php",[
                 "empresa" => $empresa,

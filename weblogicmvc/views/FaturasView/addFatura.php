@@ -6,15 +6,21 @@
             <input type="hidden" name="valortotal" value="0" placeholder="Valortotal"/>
             <input type="hidden" name="ivatotal" value="0" placeholder="ivatotal"/>
             <input type="hidden" name="estado" value="0" />
-            <input type="hidden" name="userfuncionario_id" value="<?php echo "1" //$_POST['userid']?>" />
-            <input list="clientes" name="usercliente_id" required>
-            <datalist id="clientes">
-                <?php foreach($clientes as $cliente){?>
-                    <!--<option data-value="<?//= $cliente->id?>"> <?//=$cliente->username;?> </option>-->
-                    <option value="<?=$cliente->id?>"> <?=$cliente->username; ?> </option>
-                <?php } ?>
-            </datalist>
-            <button>Adicionar</button>
+            <input type="hidden" name="userfuncionario_id" value="<?= $_SESSION['userid']?>" />
+            <div class="row">
+                <div class="col-9">
+                    <input list="clientes" name="usercliente_id" placeholder="Escolha o cliente" required>
+                    <datalist id="clientes">
+                        <?php foreach($clientes as $cliente){?>
+                            <option value="<?=$cliente->id?>"> <?=$cliente->username; ?> </option>
+                        <?php } ?>
+                    </datalist>
+                </div>
+                <div class="col-3">
+                    <button>Adicionar</button>
+                </div>
+            </div>
+            <button>Adicionar Fatura</button>
         </form>
     </div>
 </div>
