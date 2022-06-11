@@ -55,6 +55,7 @@ header {
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
 #logo{
     text-align: left;
 }
@@ -65,6 +66,16 @@ h1{
 }
 #username{
     text-align: right;
+}
+#copyright{
+    padding-top: 10px;
+    padding-right: 20px;
+    float: right;
+}
+#curso{
+    padding-left: 20px;
+    padding-top: 10px;
+    float: left;
 }
 h2{
     text-align: Center;
@@ -90,7 +101,6 @@ nav a {
 }
 
 .w3-center{
-
     text-align: center!important;
 }
 .w3-wide {
@@ -129,6 +139,7 @@ CSS DA DIV DA ZONA RESERVADA
     width: 600px;
     padding: 8% 0 0;
     margin: auto;
+    padding-bottom: 5%;
 }
 .form {
     position: relative;

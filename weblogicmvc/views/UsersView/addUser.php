@@ -3,7 +3,14 @@
         <form class="login-form" method="POST" action="?c=user&a=store">
             <h2>Adicionar Utilizador</h2>
             <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
+            <div class="row">
+                <div class="col-11">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="col-1" style="padding-top: 15px">
+                    <input type="checkbox" onclick="alterarVisaoPassword()">
+                </div>
+            </div>
             <input type="text" name="telefone" placeholder="Telefone" required>
             <input type="text" name="email" placeholder="Email" required>
             <input type="text" name="nif" placeholder="NIF" required>
