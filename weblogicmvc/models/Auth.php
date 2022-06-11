@@ -32,6 +32,13 @@ class Auth
         }
     }
 
+    public function IsCliente(){
+        if ($_SESSION['role'] != '1' || $_SESSION['role'] != '2'){
+            echo '<script type="text/javascript">alert("Nao tem acesso a esta página")</script>';
+            echo '<script>window.location="index.php?c=site&a=zonareservada";</script>';
+        }
+}
+
     public function logout(){
         session_destroy();
     }

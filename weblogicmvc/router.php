@@ -44,10 +44,12 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
         case('login'):
             switch ($action) {
                 case ('index'):
+                    //se estiver autenticado mostrar mensagem de erro
                     $loginController = new LoginController();
                     $loginController->index();
                     break;
                 case ('login'):
+                    //se estiver autenticado mostrar mensagem de erro
                     $loginController = new LoginController();
                     $loginController->login();
                     break;
