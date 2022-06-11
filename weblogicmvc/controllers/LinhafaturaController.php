@@ -21,7 +21,7 @@ class LinhafaturaController extends SiteController
         $linhaFatura = new Linhafatura($_POST);
         $produto = Produto::find([$linhaFatura->produto_id]);
         $fatura = Fatura::find([$linhaFatura->fatura_id]);
-        if ($produto->stock > $linhaFatura->quantidade) {
+        if ($produto->stock >= $linhaFatura->quantidade) {
             $linhaFatura->valorunitario = $produto->preco;       // RECEBE O VALOR UNITARIO (VALOR DO PRODUTO)
             $linhaFatura->valoriva = $produto->iva->percentagem / 100 * $produto->preco; // RECEBE O VALOR DO IVA DO PRODUTO
             if ($linhaFatura->is_valid()) {

@@ -52,9 +52,9 @@
                 <p>ID: <?=$funcionario->id?></p>
             </div>
             <div class="col" style="text-align: right">
-                <p> Subtotal: <?=$fatura->valortotal-$fatura->ivatotal?></p>
+                <p> Subtotal: <?=$fatura->valortotal?></p>
                 <p> Iva total: <?=$fatura->ivatotal?></p>
-                <p> Total: <?=$fatura->valortotal?>€</p>
+                <p> Total: <?=$fatura->valortotal+$fatura->ivatotal?>€</p>
             </div>
         </div>
     </div>

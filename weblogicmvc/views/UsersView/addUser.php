@@ -29,3 +29,8 @@
         </form>
     </div>
 </div>
+<div class="col-sm-6">
+    <p>
+        <a href="?c=site&a=zonareservada" class="btn btn-info" role="button">Voltar</a>
+    </p>
+</div>

@@ -27,9 +27,6 @@
                     ?>
                     <td>
                         <a href="?c=fatura&a=show&id=<?=$fatura->id?>" class="btn btn-info" role="button">Detalhes</a>
-                        <?php if ($fatura->estado == 1):?>
-                        <a href="" class="btn btn-info" role="button">Imprimir</a>
-                        <?php endif; ?>
                     </td>
                 </tr>
             <?php } ?>

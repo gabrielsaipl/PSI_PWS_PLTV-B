@@ -58,6 +58,7 @@ header {
 
 #logo{
     text-align: left;
+    padding-left: 5px;
 }
 h1{
     height: 10px;
@@ -66,7 +67,9 @@ h1{
 }
 #username{
     text-align: right;
+    margin-right: 5px;
 }
+
 #copyright{
     padding-top: 10px;
     padding-right: 20px;
@@ -151,6 +154,17 @@ CSS DA DIV DA ZONA RESERVADA
     box-shadow: 10px 10px 30px green;
 }
 .form input {
+    font-family: "Roboto", sans-serif;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+select{
     font-family: "Roboto", sans-serif;
     background: #f2f2f2;
     width: 100%;

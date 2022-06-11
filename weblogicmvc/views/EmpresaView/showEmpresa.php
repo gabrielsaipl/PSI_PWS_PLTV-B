@@ -1,14 +1,14 @@
 <div class="login-page">
     <div class="form">
         <h4><b><u><?=$empresa->designacaosocial?></u></b></h4>
-        <p> <?=$empresa->localidade?></p>
-        <p> <?=$empresa->codigopostal?></p>
-        <p> <?=$empresa->morada?></p>
-        <p> <?=$empresa->capitalsocial?> €</p>
-        <p> <?=$empresa->nif?></p>
-        <p> <?=$empresa->email?></p>
-        <p> <?=$empresa->telefone?></p>
-        <a href="index.php?c=empresa&a=edit"><button>Editar</button></a>
+        <p> Localidade: <?=$empresa->localidade?></p>
+        <p> Código Postal: <?=$empresa->codigopostal?></p>
+        <p> Morada: <?=$empresa->morada?></p>
+        <p> Capital Social: <?=$empresa->capitalsocial?> €</p>
+        <p> Nif: <?=$empresa->nif?></p>
+        <p> Email: <?=$empresa->email?></p>
+        <p> Telefone: <?=$empresa->telefone?></p>
+        <a href="?c=empresa&a=edit"><button>Editar</button></a>
     </div>
 </div>
 <div class="col-sm-6">

@@ -58,7 +58,7 @@ class ProdutoController extends SiteController
         $auth = new Auth();
         $auth ->IsLoggedIn();
         $auth ->IsCliente();
-        $ivas = Iva::all();
+        $ivas = Iva::all(array('conditions'=> 'emvigor = 1'));
         $produto = Produto::find([$id]);
         if (is_null($produto)){
             // MOSTRAR POPUP ERRO

@@ -5,13 +5,13 @@
             elseif ($user->role==3) echo "Cliente";
             else echo "Administrador";?></u></b>
         </h4>
-        <p> <?=$user->username?></p>
-        <p> <?=$user->telefone?></p>
-        <p> <?=$user->email?></p>
-        <p> <?=$user->nif?></p>
-        <p> <?=$user->morada?></p>
-        <p> <?=$user->localidade?></p>
-        <p> <?=$user->codigopostal?></p>
+        <p> <b>Username</b>: <?=$user->username?></p>
+        <p> <b>Telefone:</b> <?=$user->telefone?></p>
+        <p> <b>Email:</b> <?=$user->email?></p>
+        <p> <b>NIF:</b> <?=$user->nif?></p>
+        <p> <b>Morada:</b> <?=$user->morada?></p>
+        <p> <b>Localidade:</b> <?=$user->localidade?></p>
+        <p> <b>Código Postal:</b> <?=$user->codigopostal?></p>
     </div>
 </div>
 <div class="col-sm-6">

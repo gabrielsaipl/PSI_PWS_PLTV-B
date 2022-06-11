@@ -24,3 +24,8 @@
         </form>
     </div>
 </div>
+<div class="col-sm-6">
+    <p>
+        <a href="?c=fatura&a=index" class="btn btn-info" role="button">Voltar</a>
+    </p>
+</div>

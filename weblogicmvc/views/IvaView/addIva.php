@@ -7,8 +7,13 @@
                 <option value="1">Ativo</option>
                 <option value="0">Inativo</option>
             </select>
-            <textarea rows="3" cols="34" name="descricao" placeholder="Descrição" required></textarea>
+            <input type="text" name="descricao" placeholder="Descrição" required>
             <button>Adicionar</button>
         </form>
     </div>
+</div>
+<div class="col-sm-6">
+    <p>
+        <a href="?c=iva&a=index" class="btn btn-info" role="button">Voltar</a>
+    </p>
 </div>

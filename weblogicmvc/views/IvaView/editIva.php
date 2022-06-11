@@ -12,3 +12,8 @@
         </form>
     </div>
 </div>
+<div class="col-sm-6">
+    <p>
+        <a href="?c=iva&a=index" class="btn btn-info" role="button">Voltar</a>
+    </p>
+</div>

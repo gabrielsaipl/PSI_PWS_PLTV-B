@@ -2,6 +2,17 @@
 
 class EmpresaController extends SiteController
 {
+    public function create(){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
+        $auth ->IsCliente();
+        $empresa = Empresa::first(); // CONFIRMA SE REALMENTE NÃO EXISTE UMA EMPRESA
+        if (is_null($empresa)){
+            $this->renderView("EmpresaView/addEmpresa.php");
+        } else {
+            $this->redirectToRoute("empresa","show");
+        }
+    }
 
     public function store(){
         $auth = new Auth();
@@ -10,6 +21,7 @@ class EmpresaController extends SiteController
         $empresa = new Empresa($_POST);
         if ($empresa->is_valid()){
             $empresa->save();
+            $this->redirectToRoute("empresa","show");
         } else{
             echo '<script>alert("Erro ao criar a empresa")</script>';
             $this->redirectToRoute("empresa","edit");
@@ -50,7 +62,7 @@ class EmpresaController extends SiteController
         $auth ->IsCliente();
         $empresa = Empresa::first();
         if(is_null($empresa)){ //SE N EXISTIR
-            //MOSTRAR POPUP
+            $this->redirectToRoute("empresa","create");
         } else {
             $this->renderView("EmpresaView/showEmpresa.php",[
                 "empresa" => $empresa,

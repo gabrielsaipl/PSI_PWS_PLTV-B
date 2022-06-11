@@ -197,6 +197,14 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
             break;
         case ('empresa'):
             switch ($action) {
+                case('create'):
+                    $empresaController = new EmpresaController();
+                    $empresaController->create();
+                    break;
+                case('store'):
+                    $empresaController = new EmpresaController();
+                    $empresaController->store();
+                    break;
                 case ('edit'):
                     $empresaController = new EmpresaController();
                     $empresaController->edit();
