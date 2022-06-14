@@ -2,7 +2,7 @@
 <div class="login-page">
     <div class="form">
         <div id="form">
-            <h2>Zona reservada</h2>
+            <h1>Zona reservada</h1>
             <div id="form_scroll">
                 <div class="space"></div>
                 <?php if($_SESSION['role'] == 3):?>

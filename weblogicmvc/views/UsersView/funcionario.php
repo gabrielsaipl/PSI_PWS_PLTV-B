@@ -1,14 +1,15 @@
-<div class="input-group">
-    <div class="form-outline">
-        <input type="search" id="caixaFiltrar" onkeyup="filtrar()" placeholder="Escreva um nome..." class="form-control" />
-    </div>
-</div>
+
 <h2 class="text-left top-space">Funcionários</h2>
 <div class="col-sm-6">
     <h3>Criar novo</h3>
     <p>
         <a href="?c=user&a=create" class="btn btn-info" role="button">Novo</a>
     </p>
+</div>
+<div class="input-group">
+    <div class="form-outline">
+        <input type="search" id="caixaFiltrar" onkeyup="filtrar()" placeholder="Escreva um nome..." class="form-control" />
+    </div>
 </div>
 </div>
 <div class="row">

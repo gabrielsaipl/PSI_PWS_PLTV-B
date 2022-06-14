@@ -20,8 +20,8 @@ class ProdutoController extends SiteController
         $auth ->IsCliente();
         $produto = Produto::find([$id]);
         $iva = Iva::find([$produto->iva_id]);
-        if(is_null($produto)){ //SE N EXISTIR O PRODUTO
-            //MOSTRAR POPUP
+        if(is_null($produto)){ //SE NÃO EXISTIR O PRODUTO
+            echo '<script type="text/javascript">alert("Erro ao mostrar o produto"); window.location="index.php?c=produto&a=index";</script>';
         } else {
             $this->renderView("ProdutosView/showProduto.php",[
                 'produto' => $produto,
@@ -49,8 +49,7 @@ class ProdutoController extends SiteController
             $produto->save();
             $this->redirectToRoute("produto","index");
         } else{
-            echo '<script>alert("Erro ao criar o produto")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            $this->redirectToRoute("produto","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            echo '<script type="text/javascript">alert("Erro ao criar o produto"); window.location="index.php?c=produto&a=create";</script>';
         }
     }
 
@@ -61,7 +60,7 @@ class ProdutoController extends SiteController
         $ivas = Iva::all(array('conditions'=> 'emvigor = 1'));
         $produto = Produto::find([$id]);
         if (is_null($produto)){
-            // MOSTRAR POPUP ERRO
+            echo '<script type="text/javascript">alert("Erro ao encontrar produto"); window.location="index.php?c=produto&a=index";</script>';
         } else {
             $this->renderView("ProdutosView/editProduto.php",[
                 'produto' => $produto,
@@ -80,7 +79,7 @@ class ProdutoController extends SiteController
             $produto->save();
             $this->redirectToRoute("produto","index");
         } else {
-            // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
+            echo '<script type="text/javascript">alert("Erro ao gravar o produto"); window.location="index.php?c=produto&a=index";</script>';
         }
     }
 }

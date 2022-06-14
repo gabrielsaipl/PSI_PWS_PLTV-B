@@ -69,6 +69,25 @@
                 <input type="text" name="codigopostal" value="<?=$user->codigopostal?>" placeholder="Código Postal" required>
             </div>
         </div>
+        <?php if($_SESSION['role']==1): //SE FOR 1(ADMIN)?>
+            <select name="role">
+                <?php if ($user->role == 1):?>
+                    <option selected="selected" value="1">Admin</option>
+                    <option value="2">Funcionário</option>
+                    <option value="3">Cliente</option>
+                <?php endif;?>
+                <?php if ($user->role == 2):?>
+                    <option value="1">Admin</option>
+                    <option selected="selected" value="2">Funcionário</option>
+                    <option value="3">Cliente</option>
+                <?php endif;?>
+                <?php if ($user->role == 3):?>
+                    <option value="1">Admin</option>
+                    <option value="2">Funcionário</option>
+                    <option selected="selected" value="3">Cliente</option>
+                <?php endif;?>
+            </select>
+        <?php endif; ?>
       <button>Confirmar</button>
     </form>
   </div>

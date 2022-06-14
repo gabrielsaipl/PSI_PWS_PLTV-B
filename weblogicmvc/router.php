@@ -165,10 +165,6 @@ if(!isset($_GET['c'])&&!isset($_GET['a'])){
                     $faturaController = new FaturaController();
                     $faturaController->store();
                     break;
-                case('update'):
-                    $faturaController = new FaturaController();
-                    $faturaController->update($id);
-                    break;
                 case('emitir'):
                     $faturaController = new FaturaController();
                     $faturaController->emitir($id);

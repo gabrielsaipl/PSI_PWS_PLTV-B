@@ -5,12 +5,12 @@ class UserController extends SiteController
     public function funcionarios(){
         $auth = new Auth();
         $auth ->IsLoggedIn();
-        if ($_SESSION['role'] != '3'){
+        if ($_SESSION['role'] != '1'){
             echo '<script type="text/javascript">alert("Nao tem acesso a esta página")</script>';
             echo '<script>window.location="index.php?c=site&a=zonareservada";</script>';
         }
         $funcionarios = User::all(array('conditions'=> 'role = 2'));
-        $this->renderView("UsersView/funcionario.php",[     // FALTA FILTRAR NA LISTA
+        $this->renderView("UsersView/funcionario.php",[
             "funcionarios" => $funcionarios,
         ]);
     }
@@ -21,20 +21,19 @@ class UserController extends SiteController
         $auth ->IsCliente();
 
         $clientes = User::all(array('conditions'=> 'role = 3'));
-        $this->renderView("UsersView/cliente.php",[     // FALTA FILTRAR NA LISTA
+        $this->renderView("UsersView/cliente.php",[
             "clientes" => $clientes,
         ]);
     }
 
     public function show($id){
+        $auth = new Auth();
+        $auth ->IsLoggedIn();
+        $auth ->IsCliente();
         $user = User::find([$id]);
-
         if(is_null($user)){
-            //MOSTRAR POPUP
+            echo '<script type="text/javascript">alert("Erro ao mostrar o Utilizador"); window.location="index.php?c=site&a=zonareservada";</script>';
         } else {
-            $auth = new Auth();
-            $auth ->IsLoggedIn();
-            $auth ->IsCliente();
             $this->renderView("UsersView/showUser.php",[
                 "user" => $user,
             ]);
@@ -58,8 +57,7 @@ class UserController extends SiteController
             if($user->role==2) $this->redirectToRoute("user","funcionarios");
             if($user->role==3) $this->redirectToRoute("user","cliente");
         } else{
-            echo '<script>alert("Erro ao criar o utilizador")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            $this->redirectToRoute("user","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            echo '<script type="text/javascript">alert("Erro ao gravar o Utilizador"); window.location="index.php?c=user&a=create";</script>';
         }
     }
 
@@ -67,10 +65,9 @@ class UserController extends SiteController
         $auth = new Auth();
         $auth ->IsLoggedIn();
         $auth ->IsCliente();
-        $user = User::find([$id]);  // SÓ EDITA SE FOR FUNCIONARIO
+        $user = User::find([$id]);
         if (is_null($user)){
-            echo '<script>alert("Erro ao selecionar o ID")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            $this->redirectToRoute("user","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            echo '<script type="text/javascript">alert("Erro ao encontrar o Utilizador"); window.location="index.php?c=site&a=zonareservada";</script>';
         } else {
             $this->renderView("UsersView/editUser.php",[
                 "user" => $user,
@@ -88,9 +85,9 @@ class UserController extends SiteController
             $user->save();
             if ($user->role == 2) $this->redirectToRoute("user","funcionario");
             elseif ($user->role == 3) $this->redirectToRoute("user","cliente");
-            elseif ($user->role == 1) $this->redirectToRoute(); // MOSTRAR VISTA DA ZONA RESERVADA DO ADMIN
+            elseif ($user->role == 1) $this->redirectToRoute("site","zonareservada");
         } else {
-            // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
+            echo '<script type="text/javascript">alert("Erro ao gravar o Utilizador"); window.location="index.php?c=site&a=zonareservada";</script>';
         }
     }
 }

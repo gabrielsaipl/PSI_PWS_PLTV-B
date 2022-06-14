@@ -26,20 +26,17 @@ class LinhafaturaController extends SiteController
             $linhaFatura->valoriva = $produto->iva->percentagem / 100 * $produto->preco; // RECEBE O VALOR DO IVA DO PRODUTO
             if ($linhaFatura->is_valid()) {
                 $linhaFatura->save();
-                $produto->stock = $produto->stock - $linhaFatura->quantidade;       // REDUZ O STOCK DO PRODUTO
-                $produto->save();           // GRAVA O PRODUTO
+                $produto->stock = $produto->stock - $linhaFatura->quantidade;       // ALTERA O STOCK DO PRODUTO
+                $produto->save();
                 $fatura->valortotal += $linhaFatura->valorunitario * $linhaFatura->quantidade;     //ALTERA O VALOR TOTAL NA FATURA
                 $fatura->ivatotal += $linhaFatura->valoriva * $linhaFatura->quantidade;    //ALTERA O VALOR DO IVA TOTAL NA FATURA
-                $fatura->save();            // GRAVA A FATURA
+                $fatura->save();
                 header("Location:index.php?c=fatura&a=show&id=" . $linhaFatura->fatura_id);
             } else {
-                echo '<script>alert("Erro ao criar a linha de fatura")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-                $this->redirectToRoute("linhafatura", "create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+                echo '<script type="text/javascript">alert("Erro ao criar a linha de fatura"); window.location="index.php?c=fatura&a=index";</script>';
             }
         } else {
-            // ERRO A DIZER QUE O STOCK É INFERIOR À QUANTIDADE DA LINHA DE FATURA
-            // REDIRECT PARA A FATURA
-            echo "quantidade de stock inferior";
+            echo '<script type="text/javascript">alert("Quantidade requerida superior à quantidade de stock"); window.location="index.php?c=fatura&a=index";</script>';
         }
     }
 

@@ -12,7 +12,7 @@ class Auth
         $mail = $_POST['email'];
         $psw = $_POST['password'];
         $utilizador = User::find(array('conditions'=> 'email = "'. $mail .'" and password = "'. $psw .'"'));
-        if ($utilizador != null)     //Checks for hard-coded uname and psw
+        if ($utilizador != null)
         {
             $_SESSION['userid'] = $utilizador -> id;
             $_SESSION['role'] = $utilizador -> role;

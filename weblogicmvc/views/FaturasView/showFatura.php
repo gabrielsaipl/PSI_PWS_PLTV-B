@@ -25,7 +25,7 @@
             </div>
         </div>
         <p> Data: <?=$fatura->data?></p>
-        <table class="table tablestriped">
+        <table class="table tablestriped" style="text-align: center;border: 1px">
             <thead>
                 <th>Produto</th>
                 <th>Quantidade</th>
@@ -45,6 +45,9 @@
             </tr>
         <?php } ?>
         </table>
+        <?php if($fatura->estado == 0):?>
+            <a href="?c=linhafatura&a=create&id=<?=$fatura->id?>" class="btn btn-info" role="button">Nova Linha de Fatura</a>
+        <?php endif;?>
         <div class="row">
             <div class="col" id="dadosFuncionario" style="text-align: left">
                 <p> <b>Funcionário: </b></p>
@@ -63,7 +66,6 @@
     <p>
         <?php if($fatura->estado == 0):?>
             <a href="?c=fatura&a=emitir&id=<?=$fatura->id?>" class="btn btn-info" role="button">Emitir</a>
-            <a href="?c=linhafatura&a=create&id=<?=$fatura->id?>" class="btn btn-info" role="button">Nova Linha de Fatura</a>
         <?php else:?>
             <button class="btn btn-info" onclick="printform('form')">Imprimir</button>
         <?php endif;?>

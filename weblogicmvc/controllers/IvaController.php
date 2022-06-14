@@ -17,9 +17,8 @@ class IvaController extends SiteController
         $auth ->IsLoggedIn();
         $auth ->IsCliente();
         $iva = Iva::find([$id]);
-
         if(is_null($iva)){ //SE N EXISTIR
-            //MOSTRAR POPUP
+            echo '<script type="text/javascript">alert("Erro ao mostrar o Iva"); window.location="index.php?c=iva&a=index";</script>';
         } else {
             $this->renderView("IvaView/showIva.php",[
                 'iva' => $iva,
@@ -39,13 +38,11 @@ class IvaController extends SiteController
         $auth ->IsLoggedIn();
         $auth ->IsCliente();
         $iva = new Iva($_POST);
-        //var_dump($iva);
         if ($iva->is_valid()){
             $iva->save();
             $this->redirectToRoute("iva","index");
         } else{
-            echo '<script>alert("Erro ao criar o Iva")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            $this->redirectToRoute("iva","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            echo '<script type="text/javascript">alert("Erro ao adicionar o Iva"); window.location="index.php?c=iva&a=create";</script>';
         }
     }
 
@@ -55,7 +52,7 @@ class IvaController extends SiteController
         $auth ->IsCliente();
         $iva = Iva::find([$id]);
         if (is_null($iva)){
-            // MOSTRAR POPUP ERRO
+            echo '<script type="text/javascript">alert("Erro ao encontrar o Iva"); window.location="index.php?c=iva&a=index";</script>';
         } else {
             $this->renderView("IvaView/editIva.php",[
                 "iva" => $iva,
@@ -73,16 +70,7 @@ class IvaController extends SiteController
             $iva->save();
             $this->redirectToRoute("iva","index");
         } else {
-            // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
+            echo '<script type="text/javascript">alert("Erro ao gravar o Iva"); window.location="index.php?c=iva&a=index";</script>';
         }
-    }
-
-    public function delete($id){ // SE NECESSÁRIO
-        $auth = new Auth();
-        $auth ->IsLoggedIn();
-        $auth ->IsCliente();
-        $iva = Iva::find([$id]);
-        $iva->delete();
-        //MOSTRAR A LISTA
     }
 }

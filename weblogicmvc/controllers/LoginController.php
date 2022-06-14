@@ -12,8 +12,8 @@ class LoginController extends SiteController
 
     }
     public function login(){
-            $auth = new Auth();
-            $auth ->CheckAuth();
+        $auth = new Auth();
+        $auth ->CheckAuth();
     }
 
     public function logout(){

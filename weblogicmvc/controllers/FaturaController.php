@@ -13,15 +13,16 @@ class FaturaController extends SiteController
     }
 
     public function show($id){
-        //verificar id no link
         $auth = new Auth();
         $auth ->IsLoggedIn();
         $fatura = Fatura::find([$id]);
         $cliente = User::find([$fatura->usercliente_id]);
         $funcionario = User::find([$fatura->userfuncionario_id]);
         $empresa = Empresa::first();
+        if ($_SESSION['role'] == 3 && $_SESSION['userid'] != $cliente->id)  // SE A FATURA NÃO PERTENCER AO CLIENTE QUE ESTÁ A TENTAR VER
+            echo '<script type="text/javascript">alert("Fatura inacessível"); window.location="index.php?c=site&a=zonareservada";</script>';
         if(is_null($fatura)){ //SE N EXISTIR
-            //MOSTRAR POPUP
+            echo '<script type="text/javascript">alert("Erro ao visualizar a fatura"); window.location="index.php?c=fatura&a=index";</script>';
         } else {
             $this->renderView("FaturasView/showFatura.php",[
                 "fatura" => $fatura,
@@ -49,11 +50,10 @@ class FaturaController extends SiteController
         $fatura = new Fatura($_POST);
         if ($fatura->is_valid()){
             $fatura->save();
-            $this->redirectToRoute("fatura","index");
+            $fatura = Fatura::last();
+            header("Location: index.php?c=fatura&a=show&id=".$fatura->id);
         } else{
-            echo '<script>alert("Erro ao criar a fatura")</script>';    //  PROBLEMA COM O ALERT (PHP CORRE PRIMEIRO NO SV
-            var_dump($fatura);
-            //$this->redirectToRoute("fatura","create");          // OU SEJA, JS É CORRIDO APÓS O PHP E N PARA NO ALERT
+            echo '<script type="text/javascript">alert("Erro ao criar fatura"); window.location="index.php?c=fatura&a=create";</script>';
         }
     }
 
@@ -68,9 +68,10 @@ class FaturaController extends SiteController
     }
 
     public function historico($id){
-        //verificar id do link
         $auth = new Auth();
         $auth ->IsLoggedIn();
+        if ($_SESSION['role'] == 3 && $_SESSION['userid'] != $id)  // SE A FATURA NÃO PERTENCER AO CLIENTE QUE ESTÁ A TENTAR VER
+            echo '<script type="text/javascript">alert("Histórico inacessível"); window.location="index.php?c=site&a=zonareservada";</script>';
         $faturas = Fatura::all(array('conditions'=> 'usercliente_id = "'. $id.'" and estado = 1'));
         $this->renderView("FaturasView/listarFatura.php",[
             "faturas"=>$faturas,

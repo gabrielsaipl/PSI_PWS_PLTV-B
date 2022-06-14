@@ -17,7 +17,7 @@
                     </datalist>
                 </div>
                 <div class="col-3">
-                    <button>Adicionar</button>
+                    <button>Novo</button>
                 </div>
             </div>
             <button>Adicionar Fatura</button>

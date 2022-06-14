@@ -23,8 +23,7 @@ class EmpresaController extends SiteController
             $empresa->save();
             $this->redirectToRoute("empresa","show");
         } else{
-            echo '<script>alert("Erro ao criar a empresa")</script>';
-            $this->redirectToRoute("empresa","edit");
+            echo '<script type="text/javascript">alert("Erro ao adicionar a empresa"); window.location="index.php?c=empresa&a=create";</script>';
         }
     }
 
@@ -33,8 +32,8 @@ class EmpresaController extends SiteController
         $auth ->IsLoggedIn();
         $auth ->IsCliente();
         $empresa = Empresa::first();
-        if (is_null($empresa)){
-            // É PORQUE AINDA NÃO EXISTE EMPRESA E VAI REENCAMINHAR PARA O CREATE/STORE
+        if (is_null($empresa)){ // SE NÃO EXISTE EMPRESA
+            $this->redirectToRoute("empresa","create");
         } else {
             $this->renderView("EmpresaView/editEmpresa.php",[
                 "empresa" => $empresa,
@@ -52,7 +51,7 @@ class EmpresaController extends SiteController
             $empresa->save();
             $this->redirectToRoute("empresa","show");
         } else {
-            // MOSTRAR A VISTA EDIT COM OS ERROS QUE DEU
+            echo '<script type="text/javascript">alert("Erro ao atualizar a empresa"); window.location="index.php?c=empresa&a=edit";</script>';
         }
     }
 

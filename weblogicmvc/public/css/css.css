@@ -81,6 +81,7 @@ h1{
     float: left;
 }
 h2{
+    margin-top: 50px;
     text-align: Center;
     font-family: "Roboto", sans-serif;
     font-size: 32px;
@@ -238,5 +239,15 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#caixaFiltrar{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 500px;
+}
+
+.btn-info{
+    margin-left: 20px;
 }
   
