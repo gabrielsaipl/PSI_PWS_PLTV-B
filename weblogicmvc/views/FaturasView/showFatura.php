@@ -1,5 +1,5 @@
 <div class="login-page">
-    <h4>
+    <h4 id = "estado">
     <?php
     if ($fatura->estado == 0) echo "<b>Em lançamento</b>";
     else echo "<b>Emitida</b>";
@@ -31,7 +31,6 @@
                 <th>Quantidade</th>
                 <th>Preço Unidade</th>
                 <th>Total</th>
-                <th></th>
             </thead>
         <?php foreach ($fatura->linhafaturas as $linhafatura){ ?>
             <tr>
@@ -40,7 +39,7 @@
                 <td><?= $linhafatura->valorunitario?></td>
                 <td><?php echo $linhafatura->valorunitario * $linhafatura->quantidade?></td>
                 <?php if($fatura->estado == 0):?>
-                    <td><a href="?c=linhafatura&a=delete&id=<?=$linhafatura->id?>" class="btn btn-info" role="button">Eliminar</a></td>
+                    <td><a href="?c=linhafatura&a=delete&id=<?=$linhafatura->id?>" class="btn btn-info" role="button">X</a></td>
                 <?php endif;?>
             </tr>
         <?php } ?>
@@ -62,12 +61,12 @@
         </div>
     </div>
 </div>
-<div class="col-sm-6">
+<div class="col-sm-6" id="buttons">
     <p>
         <?php if($fatura->estado == 0):?>
             <a href="?c=fatura&a=emitir&id=<?=$fatura->id?>" class="btn btn-info" role="button">Emitir</a>
         <?php else:?>
-            <button class="btn btn-info" onclick="printform('form')">Imprimir</button>
+            <button class="btn btn-info" onclick="printfatura();">Imprimir</button>
         <?php endif;?>
         <a href="?c=fatura&a=index" class="btn btn-info" role="button">Voltar</a>
     </p>

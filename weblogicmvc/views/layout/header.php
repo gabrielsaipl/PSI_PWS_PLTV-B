@@ -15,7 +15,7 @@
 </head>
 <body>
 <main>
-    <header>
+    <header id="header">
         <h1 id="Logo">Fatura+</h1>
         <?php if(isset($_SESSION['userid'])):?>
             <h1 id="username"><?php echo $_SESSION['username']?></h1>

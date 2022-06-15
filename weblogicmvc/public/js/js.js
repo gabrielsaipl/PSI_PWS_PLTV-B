@@ -34,3 +34,24 @@ function alterarVisaoPassword() {
         checkbox.type = "password";
     }
 }
+
+function printfatura(){
+    var header = document.getElementById('header');
+    var footer = document.getElementById('footer');
+    var bts = document.getElementById('buttons');
+    var estado = document.getElementById('estado');
+    var form = document.querySelector(".form");
+    header.style.visibility="hidden";
+    footer.style.visibility="hidden";
+    bts.style.visibility="hidden";
+    estado.style.visibility="hidden";
+    form.style.boxShadow="10px 10px 30px white";
+    form.style.borderStyle="solid";
+    window.print();
+    header.style.visibility="visible";
+    footer.style.visibility="visible";
+    bts.style.visibility="visible";
+    estado.style.visibility="visible";
+    form.style.boxShadow="10px 10px 30px green";
+    form.style.borderStyle="none";
+}

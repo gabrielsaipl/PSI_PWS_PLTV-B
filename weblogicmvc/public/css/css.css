@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+@media print {
+    @page { margin: 0; }
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -234,11 +238,16 @@ select{
 .container .info span .fa {
     color: #EF3B3A;
 }
+html{
+    height: 100%;
+}
 body {
     background: #76b852; /* fallback for old browsers */
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    height: auto !important;
 }
 
 #caixaFiltrar{
