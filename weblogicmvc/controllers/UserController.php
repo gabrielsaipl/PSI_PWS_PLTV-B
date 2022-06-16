@@ -54,7 +54,7 @@ class UserController extends SiteController
         $user = new User($_POST);
         if ($user->is_valid()){
             $user->save();
-            if($user->role==2) $this->redirectToRoute("user","funcionarios");
+            if($user->role==2) $this->redirectToRoute("user","funcionario");
             if($user->role==3) $this->redirectToRoute("user","cliente");
         } else{
             echo '<script type="text/javascript">alert("Erro ao gravar o Utilizador"); window.location="index.php?c=user&a=create";</script>';

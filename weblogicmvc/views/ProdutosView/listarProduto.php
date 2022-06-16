@@ -19,9 +19,9 @@
             <?php foreach ($produtos as $produto) { ?>
                 <tr>
                     <td><?=$produto->descricao?></td>
-                    <td><?=$produto->preco?></td>
-                    <td><?=$produto->stock?></td>
-                    <td><?=$produto->iva->percentagem?></td>
+                    <td><?=number_format($produto->preco,2)?>€</td>
+                    <td><?=$produto->stock?> Uni.</td>
+                    <td><?=$produto->iva->percentagem?>%</td>
                     <td>
                         <a href="?c=produto&a=show&id=<?=$produto->id?>" class="btn btn-info" role="button">Detalhes</a>
                         <a href="?c=produto&a=edit&id=<?=$produto->id?>" class="btn btn-info" role="button">Editar</a>

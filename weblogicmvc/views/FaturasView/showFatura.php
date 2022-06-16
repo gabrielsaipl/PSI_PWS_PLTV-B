@@ -24,8 +24,8 @@
                 <p>Telef: <?= $cliente->telefone?></p>
             </div>
         </div>
-        <p> Data: <?=$fatura->data?></p>
-        <table class="table tablestriped" style="text-align: center;border: 1px">
+        <p style="text-align: right"> Data: <?=$fatura->data?></p>
+        <table class="table tablestriped" style="text-align: center;">
             <thead>
                 <th>Produto</th>
                 <th>Quantidade</th>
@@ -36,8 +36,8 @@
             <tr>
                 <td><?= $linhafatura->produto->descricao?></td>
                 <td><?= $linhafatura->quantidade ?></td>
-                <td><?= $linhafatura->valorunitario?></td>
-                <td><?php echo $linhafatura->valorunitario * $linhafatura->quantidade?></td>
+                <td><?= number_format($linhafatura->valorunitario,2)?>€</td>
+                <td><?php echo number_format($linhafatura->valorunitario * $linhafatura->quantidade,2)?>€</td>
                 <?php if($fatura->estado == 0):?>
                     <td><a href="?c=linhafatura&a=delete&id=<?=$linhafatura->id?>" class="btn btn-info" role="button">X</a></td>
                 <?php endif;?>
@@ -54,9 +54,9 @@
                 <p>ID: <?=$funcionario->id?></p>
             </div>
             <div class="col" style="text-align: right">
-                <p> Subtotal: <?=$fatura->valortotal?></p>
-                <p> Iva total: <?=$fatura->ivatotal?></p>
-                <p> Total: <?=$fatura->valortotal+$fatura->ivatotal?>€</p>
+                <p> Subtotal: <?=number_format($fatura->valortotal,2)?>€</p>
+                <p> Iva total: <?=number_format($fatura->ivatotal,2)?>€</p>
+                <p> Total: <?=number_format($fatura->valortotal+$fatura->ivatotal,2)?>€</p>
             </div>
         </div>
     </div>
